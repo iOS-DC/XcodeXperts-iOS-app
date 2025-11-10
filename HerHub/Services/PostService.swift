@@ -14,11 +14,11 @@ final class PostService {
     private var posts: [Post] = []
 
     // CREATE
-    func createPost(communityID: String, authorID: String, text: String, imageURL: String? = nil) -> Post {
+    func createPost(communityID: UUID, authorID: UUID, text: String, imageURL: String? = nil) -> Post {
         let newPost = Post(
-            id: UUID().uuidString,
-            communityID: communityID,
-            authorID: authorID,
+            id: UUID(),                 // ✅ UUID instead of String
+            communityID: communityID,   // ✅ UUID
+            authorID: authorID,         // ✅ UUID
             text: text,
             imageURL: imageURL,
             likesCount: 0,
@@ -30,18 +30,18 @@ final class PostService {
     }
 
     // READ
-    func getPosts(for communityID: String) -> [Post] {
+    func getPosts(for communityID: UUID) -> [Post] {
         return posts.filter { $0.communityID == communityID }
     }
 
     // UPDATE (Like)
-    func likePost(postID: String) {
+    func likePost(postID: UUID) {
         guard let index = posts.firstIndex(where: { $0.id == postID }) else { return }
         posts[index].likesCount += 1
     }
 
     // DELETE
-    func deletePost(postID: String) {
+    func deletePost(postID: UUID) {
         posts.removeAll { $0.id == postID }
     }
 }
