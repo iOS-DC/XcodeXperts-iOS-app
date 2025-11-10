@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User: Codable, Identifiable {
-    var id = UUID().uuidString
+struct User: Codable, Equatable {
+    var id = UUID()
     var email: String?
     var phoneNumber: String?
     var password: String
@@ -16,7 +16,7 @@ struct User: Codable, Identifiable {
     // MARK: - Linked Cycle Data
     var baselineProfile: CycleBaselineProfile?   // Set 1 — asked once
     var recentCheckIns: [CycleCheckIn]?          // Set 2 — asked every cycle
-    var latestPrediction: CyclePrediction?       // holds current forecast data
+    var latestPrediction: CyclePrediction?       // Holds current forecast data
 }
 
 // MARK: - Sample User for Testing / SwiftUI Preview

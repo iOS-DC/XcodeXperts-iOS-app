@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - One-Time Baseline Profile
-struct CycleBaselineProfile: Codable {
+struct CycleBaselineProfile: Codable, Equatable {
     var age: Int
     var baseCycleLength: Int                // average days between periods
     var basePeriodLength: Int               // average period duration
@@ -21,8 +21,8 @@ struct CycleBaselineProfile: Codable {
 }
 
 // MARK: - Recurring (Monthly / Pre-Cycle) Check-In
-struct CycleCheckIn: Codable, Identifiable {
-    var id = UUID().uuidString
+struct CycleCheckIn: Codable, Equatable {
+    var id = UUID()
     var date: Date
     var symptomsPresent: Bool
     var currentStress: Int
@@ -37,15 +37,15 @@ enum ExerciseChange: String, Codable, CaseIterable {
 }
 
 // MARK: - Cycle Prediction Summary
-struct CyclePrediction: Codable {
+struct CyclePrediction: Codable, Equatable {
     var predictedCycleLength: Int
     var predictedNextPeriodStart: Date
     var sevenDayForecast: [DailyForecast]
 }
 
 // MARK: - 7-Day Forecast Data
-struct DailyForecast: Codable, Identifiable {
-    var id = UUID().uuidString
+struct DailyForecast: Codable, Equatable {
+    var id = UUID()
     var date: Date
     var phase: CyclePhase
     var fertility: FertilityLevel
