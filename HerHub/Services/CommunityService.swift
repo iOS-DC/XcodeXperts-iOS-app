@@ -14,16 +14,16 @@ final class CommunityService {
     private var communities: [Community] = []
 
     // CREATE
-    func createCommunity(name: String, description: String, createdBy: String, themeColor: String) -> Community {
+    func createCommunity(name: String, description: String, createdBy: UUID, themeColor: String) -> Community {
         let newCommunity = Community(
-            id: UUID().uuidString,
+            id: UUID(),                      // UUID type
             name: name,
             description: description,
             coverImageURL: nil,
             themeColor: themeColor,
-            createdBy: createdBy,
+            createdBy: createdBy,            // UUID type
             guidelines: [],
-            members: [createdBy],
+            members: [createdBy],            // [UUID] type
             createdAt: Date()
         )
         communities.append(newCommunity)
@@ -35,19 +35,23 @@ final class CommunityService {
         return communities
     }
 
-    func getCommunity(by id: String) -> Community? {
+    func getCommunity(by id: UUID) -> Community? {
         return communities.first { $0.id == id }
     }
 
     // UPDATE
-    func updateCommunity(_ id: String, newName: String?, newDescription: String?) {
+    func updateCommunity(_ id: UUID, newName: String?, newDescription: String?) {
         guard let index = communities.firstIndex(where: { $0.id == id }) else { return }
-        if let newName = newName { communities[index].name = newName }
-        if let newDescription = newDescription { communities[index].description = newDescription }
+        if let newName = newName {
+            communities[index].name = newName
+        }
+        if let newDescription = newDescription {
+            communities[index].description = newDescription
+        }
     }
 
     // DELETE
-    func deleteCommunity(by id: String) {
+    func deleteCommunity(by id: UUID) {
         communities.removeAll { $0.id == id }
     }
 }
