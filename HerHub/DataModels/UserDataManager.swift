@@ -9,7 +9,7 @@ import Foundation
 import Supabase
 
 // MARK: - Private Data Manager
-final class UserDataManager {
+ class UserDataManager {
     
     private let client: SupabaseClient
     

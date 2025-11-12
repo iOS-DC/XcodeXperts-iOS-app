@@ -25,7 +25,7 @@ final class CycleDataController {
     func getBaselineProfile() async throws -> CycleBaselineProfile? {
         let profiles = try await manager.fetchBaselineProfile()
         return profiles.first
-    }
+    }             
     
     // Upload a new cycle check-in
     func uploadCheckIn(_ checkIn: CycleCheckIn) async throws {

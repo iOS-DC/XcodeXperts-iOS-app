@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="trk-nav">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--tracker-->
+        <scene sceneID="trk-scene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="trk-nav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="tracker" image="chart.bar.xaxis" catalog="system" id="trk-tab"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="trk-bar">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="trk-root" kind="relationship" relationship="rootViewController" id="trk-root-rel"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trk-first" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="131"/>
+        </scene>
+        <!--Tracker View Controller-->
+        <scene sceneID="trk-root-scene">
+            <objects>
+                <viewController id="trk-root" customClass="TrackerViewController" customModule="HerHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="trk-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trk-scroll">
+                                <rect key="frame" x="0.0" y="88" width="393" height="764"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trk-content">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-card">
+                                                <rect key="frame" x="16" y="16" width="361" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Climate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-title">
+                                                        <rect key="frame" x="16" y="16" width="200" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, December 16, 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-sub">
+                                                        <rect key="frame" x="16" y="58" width="250" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.98399999999999999" green="0.94899999999999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="hdr-sub" firstAttribute="leading" secondItem="hdr-card" secondAttribute="leading" constant="16" id="hdr-sub-leading"/>
+                                                    <constraint firstItem="hdr-sub" firstAttribute="top" secondItem="hdr-title" secondAttribute="bottom" constant="8" id="hdr-sub-top"/>
+                                                    <constraint firstItem="hdr-title" firstAttribute="leading" secondItem="hdr-card" secondAttribute="leading" constant="16" id="hdr-title-leading"/>
+                                                    <constraint firstItem="hdr-title" firstAttribute="top" secondItem="hdr-card" secondAttribute="top" constant="16" id="hdr-title-top"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="checkin-card">
+                                                <rect key="frame" x="16" y="152" width="361" height="180"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" text="Today's Check-in" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="checkin-title">
+                                                        <rect key="frame" x="16" y="16" width="200" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.96099999999999997" green="0.88200000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="symptoms-card">
+                                                <rect key="frame" x="16" y="340" width="361" height="160"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" text="How are you feeling?" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="symptoms-title">
+                                                        <rect key="frame" x="16" y="16" width="240" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.97299999999999998" green="0.92500000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="forecast-card">
+                                                <rect key="frame" x="16" y="508" width="361" height="180"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" text="7-Day Forecast" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="forecast-title">
+                                                        <rect key="frame" x="16" y="16" width="200" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.98399999999999999" green="0.94899999999999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="insight-card">
+                                                <rect key="frame" x="16" y="692" width="361" height="200"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" text="Today's Insight" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="insight-title">
+                                                        <rect key="frame" x="16" y="16" width="200" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.97299999999999998" green="0.92500000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="insight-card" secondAttribute="bottom" constant="16" id="c-bottom"/>
+                                            <constraint firstItem="checkin-card" firstAttribute="leading" secondItem="trk-content" secondAttribute="leading" constant="16" id="c-ci-leading"/>
+                                            <constraint firstItem="checkin-card" firstAttribute="top" secondItem="hdr-card" secondAttribute="bottom" constant="16" id="c-ci-top"/>
+                                            <constraint firstAttribute="trailing" secondItem="checkin-card" secondAttribute="trailing" constant="16" id="c-ci-trailing"/>
+                                            <constraint firstAttribute="width" secondItem="trk-scroll" secondAttribute="width" id="c-content-width"/>
+                                            <constraint firstItem="forecast-card" firstAttribute="leading" secondItem="trk-content" secondAttribute="leading" constant="16" id="c-for-leading"/>
+                                            <constraint firstItem="forecast-card" firstAttribute="top" secondItem="symptoms-card" secondAttribute="bottom" constant="8" id="c-for-top"/>
+                                            <constraint firstAttribute="trailing" secondItem="forecast-card" secondAttribute="trailing" constant="16" id="c-for-trailing"/>
+                                            <constraint firstItem="hdr-card" firstAttribute="leading" secondItem="trk-content" secondAttribute="leading" constant="16" id="c-hdr-leading"/>
+                                            <constraint firstItem="hdr-card" firstAttribute="top" secondItem="trk-content" secondAttribute="top" constant="16" id="c-hdr-top"/>
+                                            <constraint firstAttribute="trailing" secondItem="hdr-card" secondAttribute="trailing" constant="16" id="c-hdr-trailing"/>
+                                            <constraint firstItem="insight-card" firstAttribute="leading" secondItem="trk-content" secondAttribute="leading" constant="16" id="c-ins-leading"/>
+                                            <constraint firstItem="insight-card" firstAttribute="top" secondItem="forecast-card" secondAttribute="bottom" constant="8" id="c-ins-top"/>
+                                            <constraint firstAttribute="trailing" secondItem="insight-card" secondAttribute="trailing" constant="16" id="c-ins-trailing"/>
+                                            <constraint firstItem="symptoms-card" firstAttribute="leading" secondItem="trk-content" secondAttribute="leading" constant="16" id="c-sym-leading"/>
+                                            <constraint firstItem="symptoms-card" firstAttribute="top" secondItem="checkin-card" secondAttribute="bottom" constant="8" id="c-sym-top"/>
+                                            <constraint firstAttribute="trailing" secondItem="symptoms-card" secondAttribute="trailing" constant="16" id="c-sym-trailing"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint secondItem="trk-content" secondAttribute="bottom" id="sc-bottom"/>
+                                    <constraint firstItem="trk-content" firstAttribute="leading" secondItem="trk-scroll" id="sc-leading"/>
+                                    <constraint firstItem="trk-content" firstAttribute="top" secondItem="trk-scroll" id="sc-top"/>
+                                    <constraint secondItem="trk-content" secondAttribute="trailing" id="sc-trailing"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="trk-safe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="trk-safe" firstAttribute="bottom" secondItem="trk-scroll" secondAttribute="bottom" id="sv-bottom"/>
+                            <constraint firstItem="trk-scroll" firstAttribute="leading" secondItem="trk-safe" secondAttribute="leading" id="sv-leading"/>
+                            <constraint firstItem="trk-scroll" firstAttribute="top" secondItem="trk-safe" secondAttribute="top" id="sv-top"/>
+                            <constraint firstItem="trk-safe" firstAttribute="trailing" secondItem="trk-scroll" secondAttribute="trailing" id="sv-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="trk-nav-item"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trk-first-2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="97"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
