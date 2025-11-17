@@ -11,11 +11,14 @@ class ResourceViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var resources: [Resource] = []
-    
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        resources = ResourceManager.shared.getAllResources()
+
         title = "Resources"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
@@ -63,13 +66,13 @@ extension ResourceViewController: UITableViewDelegate, UITableViewDataSource {
         
         let item = resources[indexPath.row]
         cell.configure(with: item)
-        cell.selectionStyle = .none
+        // cell.selectionStyle = .none
 
         // handle read button tap
-        cell.readTapped = { [weak self] in
-            guard let self = self else { return }
-            self.openDetail(for: item)
-        }
+//        cell.readTapped = { [weak self] in
+//            guard let self = self else { return }
+//            self.openDetail(for: item)
+//        }
 
         return cell
     }
@@ -87,4 +90,20 @@ extension ResourceViewController: UITableViewDelegate, UITableViewDataSource {
         v.backgroundColor = .clear
         return v
     }
+    
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detailPage", sender: indexPath)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailPage",
+           let destination = segue.destination as? ArticleDetailViewController,
+           let indexPath = sender as? IndexPath {
+            
+            destination.resources = resources[indexPath.row]
+        }
+    }
+
+
+
 }
