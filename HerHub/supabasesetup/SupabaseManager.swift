@@ -17,27 +17,10 @@ final class SupabaseManager {
     let client: SupabaseClient
     
     private init() {
-        client = SupabaseClient(supabaseURL: supabaseUrl, supabaseKey: supabaseKey)
-        print("✅ Supabase client initialized successfully")
-        
-        // Run async test connection after initialization
-        Task {
-            await self.checkConnection()
-        }
-    }
-    
-    /// Async function to verify Supabase connection
-    func checkConnection() async {
-        do {
-            let response = try await client
-                .from("test_table")  // ⚠️ Replace with your actual table name
-                .select()
-                .limit(1)
-                .execute()
-            
-            print("✅ Supabase connected. Response: \(response)")
-        } catch {
-            print("❌ Supabase connection failed: \(error.localizedDescription)")
-        }
-    }
+         client = SupabaseClient(
+             supabaseURL: supabaseUrl,
+             supabaseKey: supabaseKey
+         )
+         print("✅ Supabase client initialized successfully")
+     }
 }
