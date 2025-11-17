@@ -45,9 +45,10 @@ struct Resource: Codable, Identifiable, Equatable {
 }
 
 enum ResourceCategory: String, Codable, CaseIterable {
-    case menstrualHealth
-    case mentalHealth
-    case nutrition
-    case lifestyle
-    case wellness
+    case featured = "Featured"
+    case health = "Health"
+    case wellness = "Wellness"
+    case lifestyle = "Lifestyle"
+    case fitness = "Fitness"
+    case skincare = "Skincare"
 }

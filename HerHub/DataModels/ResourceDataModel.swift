@@ -60,14 +60,20 @@ class ResourceManager {
     }
     
     // MARK: - Persistence
+//    private func loadResources() {
+//        if let savedResources = loadResourcesFromDisk() {
+//            resources = savedResources
+//        } else {
+//            resources = loadSampleResources()
+//            saveResources() // Save sample on first run
+//        }
+//    }
     private func loadResources() {
-        if let savedResources = loadResourcesFromDisk() {
-            resources = savedResources
-        } else {
-            resources = loadSampleResources()
-            saveResources() // Save sample on first run
-        }
+        // Always load fresh sample data for now
+        resources = loadSampleResources()
+        saveResources()
     }
+
     
     private func loadResourcesFromDisk() -> [Resource]? {
         guard let codedData = try? Data(contentsOf: archiveURL) else { return nil }
@@ -84,44 +90,74 @@ class ResourceManager {
     }
     
     // MARK: - Sample Data
+    // MARK: - Sample Data
     private func loadSampleResources() -> [Resource] {
-        let resource1 = Resource(
-            title: "Understanding Your Menstrual Cycle",
-            description: "Learn how your hormones change throughout your cycle.",
-            category: .menstrualHealth,
-            content: """
-            Your menstrual cycle is divided into four main phases: menstrual, follicular, ovulation, and luteal.
-            Each phase affects your energy, mood, and health differently.
-            """,
-            author: "HerHub Editorial Team",
-            estimatedReadTime: "5 min read",
-            imageURL: "menstrual_cycle_image"
-        )
-        
-        let resource2 = Resource(
-            title: "Mental Health & Yoga Cycle",
-            description: "Discover how mindfulness and yoga balance hormones.",
-            category: .mentalHealth,
-            content: """
-            Yoga and breathing exercises can help regulate hormonal balance and improve mental health.
-            """,
-            author: "Dr. Meera Sharma",
-            estimatedReadTime: "6 min read",
-            imageURL: "mental_health_image"
-        )
-        
-        let resource3 = Resource(
-            title: "Nutrition During Your Cycle",
-            description: "Learn what foods help boost energy at each menstrual phase.",
-            category: .nutrition,
-            content: """
-            Nutrition plays a vital role in hormone regulation. Each phase of your cycle can benefit from specific foods.
-            """,
-            author: "Nutritionist Ananya Rao",
-            estimatedReadTime: "7 min read",
-            imageURL: "nutrition_image"
-        )
-        
-        return [resource1, resource2, resource3]
+        return [
+            Resource(
+                title: "Understanding Your Menstrual Cycle",
+                description: "A comprehensive guide to understanding the four phases of your menstrual cycle and what to expect.",
+                category: .featured,
+                content: "Your menstrual cycle is divided into four phases: menstrual, follicular, ovulation, and luteal. Each affects your body differently.",
+                author: "HerHub Experts",
+                estimatedReadTime: "5 min read",
+                imageURL: "menstrual_cycle_image"
+            ),
+            Resource(
+                title: "Mental Health & Yoga Cycle",
+                description: "Discover how yoga and mindfulness can help manage PMS symptoms and improve overall well-being.",
+                category: .health,
+                content: "Yoga helps manage stress hormones and supports emotional health throughout your cycle.",
+                author: "Dr. Meera Sharma",
+                estimatedReadTime: "5 min read",
+                imageURL: "yoga_cycle_image"
+            ),
+            Resource(
+                title: "Nutrition During Your Cycle",
+                description: "Learn about the best foods to eat during different phases of your cycle for optimal health.",
+                category: .wellness,
+                content: "Each menstrual phase benefits from specific nutrients that can support hormone balance.",
+                author: "Nutritionist Ananya Rao",
+                estimatedReadTime: "6 min read",
+                imageURL: "nutrition_image"
+            ),
+            Resource(
+                title: "Exercise and Your Hormones",
+                description: "Learn how to adjust your workout routine to work with your hormonal changes.",
+                category: .fitness,
+                content: "Sync your workouts with your hormone levels for better results and less fatigue.",
+                author: "Fitness Coach Priya Singh",
+                estimatedReadTime: "7 min read",
+                imageURL: "exercise_hormones_image"
+            ),
+            Resource(
+                title: "Sleep and Hormonal Balance",
+                description: "Understanding the connection between quality sleep and hormonal health.",
+                category: .wellness,
+                content: "Proper rest regulates hormones and keeps your menstrual cycle consistent.",
+                author: "HerHub Experts",
+                estimatedReadTime: "6 min read",
+                imageURL: "sleep_balance_image"
+            ),
+            Resource(
+                title: "Managing PMS Naturally",
+                description: "Natural remedies and lifestyle changes to help manage PMS symptoms effectively.",
+                category: .lifestyle,
+                content: "Simple self-care practices and nutrition adjustments can reduce PMS discomfort.",
+                author: "HerHub Experts",
+                estimatedReadTime: "7 min read",
+                imageURL: "pms_management_image"
+            ),
+           
+            Resource(
+                title: "Hormonal Acne Solutions",
+                description: "Understanding and treating hormonal acne with natural and medical approaches.",
+                category: .skincare,
+                content: "Learn about effective routines and ingredients that balance hormones and improve skin health.",
+                author: "Dr. Aarohi Mehta",
+                estimatedReadTime: "6 min read",
+                imageURL: "hormonal_acne_image"
+            )
+        ]
     }
+
 }
