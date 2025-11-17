@@ -12,7 +12,7 @@
         <scene sceneID="6CC-RD-xVf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wK9-gI-FO4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="resources" image="square.and.arrow.up.badge.checkmark" catalog="system" id="Qnz-zP-zN7"/>
+                    <tabBarItem key="tabBarItem" title="resources" image="square.and.arrow.up" catalog="system" id="Qnz-zP-zN7"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kiX-qQ-uhC">
@@ -179,7 +179,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.up.badge.checkmark" catalog="system" width="112" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
