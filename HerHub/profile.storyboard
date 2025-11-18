@@ -247,8 +247,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Toh-Bf-SmW"/>
                     <connections>
-                        <outlet property="cycleLength" destination="sca-ej-sa5" id="iGO-PB-J9V"/>
-                        <outlet property="periodLength" destination="Mrw-Dr-rTm" id="tyA-31-WLd"/>
+                        <outlet property="cycleLength" destination="sca-ej-sa5" id="2uf-5z-P5e"/>
+                        <outlet property="periodLength" destination="Mrw-Dr-rTm" id="QoH-Hd-lrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
