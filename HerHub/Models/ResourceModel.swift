@@ -12,6 +12,7 @@ struct Resource: Codable, Identifiable, Equatable {
     let id: UUID
     var title: String
     var description: String
+    var detailSubtitle: String   
     var category: ResourceCategory
     var content: String
     var author: String
@@ -23,6 +24,7 @@ struct Resource: Codable, Identifiable, Equatable {
     init(
         title: String,
         description: String,
+        detailSubtitle: String,
         category: ResourceCategory,
         content: String,
         author: String,
@@ -34,6 +36,7 @@ struct Resource: Codable, Identifiable, Equatable {
         self.id = UUID()
         self.title = title
         self.description = description
+        self.detailSubtitle = detailSubtitle     
         self.category = category
         self.content = content
         self.author = author

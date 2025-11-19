@@ -21,7 +21,7 @@ class ResourceCell: UITableViewCell {
         super.awakeFromNib()
         
         // Card styling
-        cardView.layer.cornerRadius = 20
+        cardView.layer.cornerRadius = 15
         cardView.layer.masksToBounds = false
         cardView.backgroundColor = .white
         
@@ -33,21 +33,27 @@ class ResourceCell: UITableViewCell {
         
         
         // Image
-        thumbImageView.layer.cornerRadius = 16
+        thumbImageView.layer.cornerRadius = 15
         thumbImageView.clipsToBounds = true
         thumbImageView.contentMode = .scaleAspectFill
         
         // Badge label
-        badgeLabel.layer.cornerRadius = 8
+        badgeLabel.layer.cornerRadius = 11
         badgeLabel.clipsToBounds = true
         badgeLabel.font = UIFont.boldSystemFont(ofSize: 12)
         badgeLabel.textColor = .white
         //        badgeLabel.backgroundColor = .systemPink
         badgeLabel.textAlignment = .center
         
-        // Time label
-        timeLabel.font = UIFont.systemFont(ofSize: 12)
-        timeLabel.textColor = .gray
+       
+        // Time label capsule styling
+        timeLabel.backgroundColor = UIColor(white: 0.95, alpha: 1) // light grey capsule
+        timeLabel.textColor = .darkGray
+        timeLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        timeLabel.textAlignment = .center
+        timeLabel.layer.cornerRadius = 10
+        timeLabel.layer.masksToBounds = true
+
         
         // Title
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
@@ -59,18 +65,22 @@ class ResourceCell: UITableViewCell {
         descLabel.textColor = .darkGray
         descLabel.numberOfLines = 0
         
-        // Read button styling (acts like the pink text link in your design)
-        //                readButton.setTitle("Read Article →", for: .normal)
-        //                readButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        //                readButton.setTitleColor(.systemPink, for: .normal)
-        //                readButton.contentHorizontalAlignment = .left
-        ////                readButton.backgroundColor = .clear
-        //
-        //                // Hook button action
-        //                readButton.addTarget(self, action: #selector(readButtonTapped), for: .touchUpInside)
-        //    }
+      
+
         
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Add spacing around the cell (this creates gap between cards)
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(
+            top: 12,
+            left: 0,
+            bottom: 12,
+            right: 0
+        ))
+    }
+
         
         func configure(with resource: Resource) {
             titleLabel.text = resource.title
@@ -79,28 +89,7 @@ class ResourceCell: UITableViewCell {
             badgeLabel.text = resource.category.rawValue
             thumbImageView.image = UIImage(named: resource.imageURL ?? "")
             
-            // Correct category colors
-            switch resource.category {
-                
-            case .featured:
-                badgeLabel.backgroundColor = UIColor.systemPink
-                
-            case .health:
-                badgeLabel.backgroundColor = UIColor.systemTeal
-                
-            case .wellness:
-                badgeLabel.backgroundColor = UIColor.systemPurple
-                
-            case .lifestyle:
-                badgeLabel.backgroundColor = UIColor.systemOrange
-                
-            case .fitness:
-                badgeLabel.backgroundColor = UIColor.systemGreen
-                
-            case .skincare:
-                badgeLabel.backgroundColor = UIColor.systemBlue
-            }
-            
+                        
             badgeLabel.layer.masksToBounds = true
         }
 }

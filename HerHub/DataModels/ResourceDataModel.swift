@@ -5,7 +5,7 @@
 //
 //  Created by Mahika Behal on 28/10/25.
 //
-//....mam mam
+
 import Foundation
 
 class ResourceManager {
@@ -96,6 +96,8 @@ class ResourceManager {
             Resource(
                 title: "Understanding Your Menstrual Cycle",
                 description: "A comprehensive guide to understanding the four phases of your menstrual cycle and what to expect.",
+                detailSubtitle: "Understanding your cycle isn’t just science — it’s a form of self-love and emotional awareness.",
+
                 category: .featured,
                 content: """
                 Your menstrual cycle is more than a monthly routine — it’s a rhythm your body follows every single day, quietly influencing your energy, mood, skin, cravings, confidence, and even the way you think. When you understand what’s happening inside your body, you learn to work *with* your cycle instead of struggling against it, and that is one of the most empowering things a girl can do for herself.
@@ -112,6 +114,7 @@ class ResourceManager {
             Resource(
                 title: "Mental Health & Yoga Cycle",
                 description: "Discover how yoga and mindfulness can help manage PMS symptoms and improve overall well-being.",
+                detailSubtitle: "How movement, breathwork, and mindfulness help you find emotional balance through every phase of your cycle.",
                 category: .health,
                 content: """
  Your mental health is deeply connected to your hormones — far more than most girls are ever taught. Every shift in your cycle influences the way you think, feel, and react. Understanding this connection isn’t just helpful; it’s life-changing.
@@ -133,6 +136,8 @@ class ResourceManager {
             Resource(
                         title: "Stress Management Techniques",
                         description: "Effective strategies to manage stress and maintain emotional balance throughout your cycle.",
+                        detailSubtitle: "Simple, science-backed ways to calm your mind, relax your body, and handle everyday stress with confidence."
+,
                         category: .lifestyle,
                         content: """
 Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
@@ -154,6 +159,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
             Resource(
                 title: "Nutrition During Your Cycle",
                 description: "Learn about the best foods to eat during different phases of your cycle for optimal health.",
+                detailSubtitle: "Discover how the food you eat can support your hormones, energy, mood, and overall well-being all month long.",
                 category: .wellness,
                 content: """
 Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
@@ -175,6 +181,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
             Resource(
                 title: "Exercise and Your Hormones",
                 description: "Learn how to adjust your workout routine to work with your hormonal changes.",
+                detailSubtitle: "Learn how to sync your workouts with your natural hormonal flow to feel stronger, energized, and motivated.",
                 category: .fitness,
                 content:"""
  Your workout doesn’t have to look the same every day — because your body doesn’t feel the same every day. Once you learn to move in harmony with your hormones, fitness becomes easier, more enjoyable, and far more effective.
@@ -196,6 +203,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
             Resource(
                 title: "Sleep and Hormonal Balance",
                 description: "Understanding the connection between quality sleep and hormonal health.",
+                detailSubtitle: "Good sleep is more than rest — it’s powerful hormonal therapy for your body and mind.",
                 category: .wellness,
                 content: """
 Sleep is one of the most powerful ways to support your hormones — yet it’s the one thing most girls overlook. Your cycle affects your sleep patterns, and your sleep affects your cycle in return. When you learn to prioritize rest, your entire body thanks you.
@@ -213,6 +221,7 @@ Sleep is one of the most powerful ways to support your hormones — yet it’s t
             Resource(
                 title: "Managing PMS Naturally",
                 description: "Natural remedies and lifestyle changes to help manage PMS symptoms effectively.",
+                detailSubtitle: "Gentle lifestyle changes, natural remedies, and supportive habits that make PMS easier to navigate.",
                 category: .lifestyle,
                 content: """
 PMS doesn’t mean you’re dramatic or overreacting. It means your body is asking for care, softness, and rest. The days before your period can feel heavy — emotionally and physically — but small changes in lifestyle can make a huge difference.
@@ -231,6 +240,7 @@ PMS doesn’t mean you’re dramatic or overreacting. It means your body is aski
             Resource(
                 title: "Hormonal Acne Solutions",
                 description: "Understanding and treating hormonal acne with natural and medical approaches.",
+                detailSubtitle: "Understand why hormonal acne happens and how to heal your skin with kindness, care, and smart routines.",
                 category: .skincare,
                 content: """
 Hormonal acne can feel frustrating, especially when it appears at the same time every month. But it’s not a flaw — it’s your body communicating with you. Acne around your chin and jawline often increases during the luteal phase because of rising hormones.
