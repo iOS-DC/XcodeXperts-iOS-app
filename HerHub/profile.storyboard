@@ -176,8 +176,8 @@
                                                                     <constraint firstAttribute="width" constant="30" id="RN7-gK-3Zn"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help and Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rji-oa-wbw">
-                                                                <rect key="frame" x="62" y="14.999999999999998" width="134" height="20.333333333333329"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help &amp; Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rji-oa-wbw">
+                                                                <rect key="frame" x="62" y="14.999999999999998" width="117" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwA-vB-RLz">
                                                                 <rect key="frame" x="282" y="8" width="51" height="34.333333333333336"/>
                                                                 <color key="tintColor" systemColor="underPageBackgroundColor"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.fill" catalog="system"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right" catalog="system"/>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -219,7 +219,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSe-D5-2A7">
                                                                 <rect key="frame" x="282" y="8" width="51" height="34.333333333333336"/>
                                                                 <color key="tintColor" systemColor="underPageBackgroundColor"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.fill" catalog="system"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.forward" catalog="system"/>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -275,6 +275,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" style="browser" id="Toh-Bf-SmW"/>
+                    <connections>
+                        <outlet property="aboutRow" destination="H1C-QO-nAd" id="nUX-bI-yjg"/>
+                        <outlet property="cycleCard" destination="RdJ-fH-ON9" id="JfS-Gr-E3p"/>
+                        <outlet property="cycleValueLabel" destination="iib-4M-toq" id="Ivn-Ip-QLQ"/>
+                        <outlet property="helpRow" destination="Dbg-tm-12y" id="Ujk-Z9-dh5"/>
+                        <outlet property="nameLabel" destination="sYk-aR-82t" id="ZXJ-2M-w58"/>
+                        <outlet property="notificationRow" destination="fGC-Xk-fg3" id="lAa-Mj-JBR"/>
+                        <outlet property="periodCard" destination="Nkc-aJ-ETo" id="NHq-zn-GEd"/>
+                        <outlet property="periodValueLabel" destination="pGY-sx-HUh" id="i4P-H7-alk"/>
+                        <outlet property="profileCard" destination="Urp-IJ-trS" id="Ezg-Sc-45V"/>
+                        <outlet property="profileImage" destination="q4D-0f-8PX" id="zyz-da-uI9"/>
+                        <outlet property="settingsStackContainer" destination="ay6-5d-b4b" id="iUx-FK-V5z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,7 +315,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="104"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="drop" catalog="system" width="96" height="128"/>
@@ -310,7 +324,7 @@
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="questionmark.folder" catalog="system" width="128" height="96"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
