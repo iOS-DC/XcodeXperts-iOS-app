@@ -631,7 +631,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="s6f-FE-eee" firstAttribute="top" secondItem="cAR-1C-h9I" secondAttribute="top" constant="4" id="OBy-SQ-m0f"/>
                                                                             <constraint firstAttribute="bottom" secondItem="s6f-FE-eee" secondAttribute="bottom" constant="4" id="PgL-X6-Km1"/>
@@ -648,7 +648,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="OZP-HM-eQD" firstAttribute="top" secondItem="atL-N9-aEE" secondAttribute="top" constant="4" id="dLK-MD-e8H"/>
                                                                             <constraint firstItem="OZP-HM-eQD" firstAttribute="leading" secondItem="atL-N9-aEE" secondAttribute="leading" constant="4" id="e7g-BI-vVz"/>
@@ -664,7 +664,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="f4t-b0-SmD" firstAttribute="top" secondItem="ggR-uN-sVV" secondAttribute="top" constant="4" id="I25-4a-xum"/>
                                                                             <constraint firstItem="f4t-b0-SmD" firstAttribute="leading" secondItem="ggR-uN-sVV" secondAttribute="leading" constant="4" id="a4j-kC-245"/>
@@ -680,7 +680,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="tableCellBlueTextColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="ZuB-by-Yqw" firstAttribute="top" secondItem="Izj-gC-lFv" secondAttribute="top" constant="4" id="pbn-Iz-6NX"/>
                                                                             <constraint firstItem="ZuB-by-Yqw" firstAttribute="leading" secondItem="Izj-gC-lFv" secondAttribute="leading" constant="4" id="xjF-JQ-Lur"/>
@@ -696,7 +696,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="uIF-PK-dbz" firstAttribute="leading" secondItem="Xp9-30-9Mn" secondAttribute="leading" constant="4" id="RaE-P2-WvH"/>
                                                                             <constraint firstItem="uIF-PK-dbz" firstAttribute="top" secondItem="Xp9-30-9Mn" secondAttribute="top" constant="4" id="pFu-cz-TrR"/>
@@ -712,7 +712,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="hhQ-yN-e0e" firstAttribute="top" secondItem="p52-Mw-bGH" secondAttribute="top" constant="4" id="46V-db-gri"/>
                                                                             <constraint firstItem="hhQ-yN-e0e" firstAttribute="leading" secondItem="p52-Mw-bGH" secondAttribute="leading" constant="4" id="nBi-QL-4xv"/>
@@ -728,7 +728,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="1QQ-7W-clz" firstAttribute="top" secondItem="exF-aA-Fz7" secondAttribute="top" constant="4" id="MVP-KL-AQB"/>
                                                                             <constraint firstItem="1QQ-7W-clz" firstAttribute="leading" secondItem="exF-aA-Fz7" secondAttribute="leading" constant="4" id="WkA-lK-JRd"/>
@@ -840,8 +840,40 @@ time to start new projects and focus on self-care activities.</string>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="browser" id="trk-nav-item"/>
                     <connections>
                         <outlet property="checkInContainerView" destination="AuZ-Uu-z12" id="pZd-K5-bDl"/>
+                        <outlet property="cycleDayValueLabel" destination="dYP-ys-tVu" id="MCN-lF-KQg"/>
+                        <outlet property="energyValueLabel" destination="fsw-HW-AKf" id="8Fd-G3-phJ"/>
                         <outlet property="forecastContainerView" destination="1N2-Ju-Arr" id="qpf-94-AXT"/>
+                        <outlet property="moodValueLabel" destination="tCH-W5-LFq" id="grY-me-h3x"/>
+                        <outlet property="nextPeriodValueLabel" destination="wa3-EI-pyi" id="TqW-9S-geg"/>
                         <outlet property="todayInsightContainerView" destination="KJo-VS-EGj" id="WzX-dq-R20"/>
+                        <outletCollection property="dayLabels" destination="YFB-xA-9vX" collectionClass="NSMutableArray" id="bkf-rf-cD8"/>
+                        <outletCollection property="dayLabels" destination="pKC-V3-dNd" collectionClass="NSMutableArray" id="IoA-2r-ZCN"/>
+                        <outletCollection property="dayLabels" destination="bjY-KI-Sfa" collectionClass="NSMutableArray" id="yNz-NT-CO6"/>
+                        <outletCollection property="dayLabels" destination="Wz6-bg-yhN" collectionClass="NSMutableArray" id="dUD-jH-5Yt"/>
+                        <outletCollection property="dayLabels" destination="foM-Tm-mbL" collectionClass="NSMutableArray" id="S80-tY-XJc"/>
+                        <outletCollection property="dayLabels" destination="INO-Qa-E2U" collectionClass="NSMutableArray" id="mf2-eq-TJz"/>
+                        <outletCollection property="dayLabels" destination="dXp-Vz-YvR" collectionClass="NSMutableArray" id="ofk-5L-A5W"/>
+                        <outletCollection property="dateLabels" destination="Ty1-ab-VJ7" collectionClass="NSMutableArray" id="BfD-Op-zRP"/>
+                        <outletCollection property="dateLabels" destination="lZa-ps-ZsM" collectionClass="NSMutableArray" id="w29-XK-EQb"/>
+                        <outletCollection property="dateLabels" destination="Kf4-3m-aJv" collectionClass="NSMutableArray" id="B0C-qx-iFl"/>
+                        <outletCollection property="dateLabels" destination="f2n-Zu-b5e" collectionClass="NSMutableArray" id="jKr-Rm-caa"/>
+                        <outletCollection property="dateLabels" destination="596-qB-6te" collectionClass="NSMutableArray" id="PTI-tR-7gh"/>
+                        <outletCollection property="dateLabels" destination="bpo-QR-v1M" collectionClass="NSMutableArray" id="9fm-Mi-JjM"/>
+                        <outletCollection property="dateLabels" destination="0A1-ai-YNn" collectionClass="NSMutableArray" id="9hg-pH-YXD"/>
+                        <outletCollection property="moodLabels" destination="8fS-ZP-Ssy" collectionClass="NSMutableArray" id="HZv-KR-YYC"/>
+                        <outletCollection property="moodLabels" destination="esx-SP-BAI" collectionClass="NSMutableArray" id="TXe-CD-YhV"/>
+                        <outletCollection property="moodLabels" destination="Lnz-QB-FXN" collectionClass="NSMutableArray" id="DwJ-Nl-XE6"/>
+                        <outletCollection property="moodLabels" destination="8VX-Fk-Ofz" collectionClass="NSMutableArray" id="qGK-6V-AVA"/>
+                        <outletCollection property="moodLabels" destination="7d2-nd-xGj" collectionClass="NSMutableArray" id="DUV-z2-LxT"/>
+                        <outletCollection property="moodLabels" destination="SSh-nD-hG3" collectionClass="NSMutableArray" id="UeW-lP-id4"/>
+                        <outletCollection property="moodLabels" destination="lW0-Yf-C4A" collectionClass="NSMutableArray" id="XKG-Dz-7Sa"/>
+                        <outletCollection property="fertilityBoxes" destination="s6f-FE-eee" collectionClass="NSMutableArray" id="afG-eQ-lJw"/>
+                        <outletCollection property="fertilityBoxes" destination="OZP-HM-eQD" collectionClass="NSMutableArray" id="Uhn-iW-nEz"/>
+                        <outletCollection property="fertilityBoxes" destination="f4t-b0-SmD" collectionClass="NSMutableArray" id="4y1-QL-jkX"/>
+                        <outletCollection property="fertilityBoxes" destination="ZuB-by-Yqw" collectionClass="NSMutableArray" id="8sA-PK-UUp"/>
+                        <outletCollection property="fertilityBoxes" destination="uIF-PK-dbz" collectionClass="NSMutableArray" id="ch5-MV-yrF"/>
+                        <outletCollection property="fertilityBoxes" destination="hhQ-yN-e0e" collectionClass="NSMutableArray" id="Nbd-Nc-ov7"/>
+                        <outletCollection property="fertilityBoxes" destination="1QQ-7W-clz" collectionClass="NSMutableArray" id="322-L2-Avq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trk-first-2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1407,28 +1439,22 @@ time to start new projects and focus on self-care activities.</string>
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.38039215686274508" green="0.33333333333333331" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.79607843137254897" green="0.18823529411764706" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
