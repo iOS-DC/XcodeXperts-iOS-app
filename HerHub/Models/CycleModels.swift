@@ -38,10 +38,25 @@ enum ExerciseChange: String, Codable, CaseIterable {
 
 // MARK: - Cycle Prediction Summary
 struct CyclePrediction: Codable, Equatable {
-    var predictedCycleLength: Int
-    var predictedNextPeriodStart: Date
-    var sevenDayForecast: [DailyForecast]
+    var predicted_cycle_length: Int
+    var predicted_next_period_start: Date
+    var forecastID: UUID?
+
+    enum CodingKeys: String, CodingKey {
+        case predicted_cycle_length = "predicted_cycle_length"
+        case predicted_next_period_start = "predicted_next_period_start"
+        case forecastID = "forecastID"
+    }
 }
+
+
+//this stores daily forecast and helps us build weak dependecy
+struct DailyForecastBundle: Codable, Equatable {
+    var id: UUID          // referenced by CyclePrediction.forecastID
+    var list: [DailyForecast]
+}
+
+
 
 // MARK: - 7-Day Forecast Data
 struct DailyForecast: Codable, Equatable {
@@ -51,7 +66,15 @@ struct DailyForecast: Codable, Equatable {
     var fertility: FertilityLevel
     var energy: EnergyLevel
     var weatherDescription: String
+    var mood: String
+    var symptoms: [Symptom]          // FIXED naming
+    var recommendations: [String]    // NEW
 }
+struct Symptom: Codable, Equatable {
+    var name: String
+    var intensity: Int  // 1–10 scale or 0–100
+}
+
 
 // MARK: - Enum Sets
 enum CyclePhase: String, Codable {
@@ -59,27 +82,24 @@ enum CyclePhase: String, Codable {
 }
 
 enum FertilityLevel: String, Codable {
-    case low, medium, high
+    case low, med, high
 }
-
 enum EnergyLevel: String, Codable {
     case high, medium, low
 }
 
-// MARK: - Sample Data for Entire Model
-extension CyclePrediction {
-    static let sample = CyclePrediction(
-        predictedCycleLength: 28,
-        predictedNextPeriodStart: Calendar.current.date(byAdding: .day, value: 28, to: Date())!,
-        sevenDayForecast: [
-            DailyForecast(date: Date(), phase: .follicular, fertility: .low, energy: .high, weatherDescription: "☀️ Sunny — feeling confident and focused"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 1), phase: .follicular, fertility: .medium, energy: .high, weatherDescription: "🌤️ Clear skies — energy stable"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 2), phase: .ovulation, fertility: .high, energy: .high, weatherDescription: "☀️ Bright day — peak fertility, great mood"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 3), phase: .luteal, fertility: .medium, energy: .medium, weatherDescription: "🌥️ Mild clouds — emotional balance needed"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 4), phase: .luteal, fertility: .low, energy: .medium, weatherDescription: "🌦️ Slight rain — slight drop in energy"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 5), phase: .menstrual, fertility: .low, energy: .low, weatherDescription: "🌧️ Rainstorm — rest and self-care"),
-            DailyForecast(date: Date().addingTimeInterval(86400 * 6), phase: .menstrual, fertility: .low, energy: .low, weatherDescription: "🌧️ Continued rain — prioritize comfort")
-        ]
+// MARK: - Sample Data
+extension CycleBaselineProfile {
+    static let sample = CycleBaselineProfile(
+        age: 23,
+        baseCycleLength: 28,
+        basePeriodLength: 5,
+        onBirthControl: false,
+        hasPCOS: false,
+        exercisePerWeek: "3–5x",
+        avgSleepHours: 7.0,
+        baselineStress: 5,
+        lastPeriodStart: Calendar.current.date(byAdding: .day, value: -20, to: Date())!
     )
 }
 
@@ -95,16 +115,40 @@ extension CycleCheckIn {
     )
 }
 
-extension CycleBaselineProfile {
-    static let sample = CycleBaselineProfile(
-        age: 23,
-        baseCycleLength: 28,
-        basePeriodLength: 5,
-        onBirthControl: false,
-        hasPCOS: false,
-        exercisePerWeek: "3–5x",
-        avgSleepHours: 7.0,
-        baselineStress: 5,
-        lastPeriodStart: Calendar.current.date(byAdding: .day, value: -20, to: Date())!
-    )
+extension DailyForecast {
+    static func sampleList(start: Date = Date()) -> [DailyForecast] {
+        return (0..<7).map { i in
+            DailyForecast(
+                date: Calendar.current.date(byAdding: .day, value: i, to: start)!,
+                phase: [.follicular, .ovulation, .luteal, .menstrual][i % 4],
+                fertility: [.low, .med, .high][i % 3],
+                energy: [.high, .medium, .low][i % 3],
+                weatherDescription: "Sample Forecast \(i)",
+                mood: "Mood \(i)",
+                symptoms: [],
+                recommendations: ["Recommendation \(i)"]
+            )
+        }
+    }
 }
+
+extension DailyForecastBundle {
+    static func sample() -> DailyForecastBundle {
+        let id = UUID()
+        return DailyForecastBundle(
+            id: id,
+            list: DailyForecast.sampleList()
+        )
+    }
+}
+
+extension CyclePrediction {
+    static func sample() -> CyclePrediction {
+        return CyclePrediction(
+            predicted_cycle_length: 28,
+            predicted_next_period_start: Calendar.current.date(byAdding: .day, value: 28, to: Date())!,
+            forecastID: nil // set after uploading DailyForecastBundle
+        )
+    }
+}
+

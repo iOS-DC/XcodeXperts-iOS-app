@@ -49,19 +49,47 @@ import Supabase
         return response.value
     }
     
-    // MARK: - Save / Fetch Predictions
-    func savePrediction(_ prediction: CyclePrediction) async throws {
-        _ = try await client
-            .from("cycle_predictions")
-            .insert(prediction)
-            .execute()
-    }
-    
-    func fetchPredictions() async throws -> [CyclePrediction] {
-        let response: PostgrestResponse<[CyclePrediction]> = try await client
-            .from("cycle_predictions")
-            .select()
-            .execute()
-        return response.value
-    }
+  
+     
+     
+     // daily forecast save
+     // MARK: - Save / Fetch Predictions
+     //post prediction (it contains the object of 7day forecast )
+     
+     func savePrediction(_ prediction: CyclePrediction) async throws {
+         _ = try await client
+             .from("cycle_predictions")
+             .insert(prediction)
+             .execute()
+     }
+//post prediction
+     func fetchPredictions() async throws -> [CyclePrediction] {
+         let response: PostgrestResponse<[CyclePrediction]> = try await client
+             .from("cycle_predictions")
+             .select()
+             .execute()
+         return response.value
+     }
+
+     // MARK: - Save / Fetch Forecast Bundles (NEW)
+     //post forecast 7 days
+     func saveForecastBundle(_ bundle: DailyForecastBundle) async throws {
+         _ = try await client
+             .from("daily_forecast_bundles")
+             .insert(bundle)
+             .execute()
+     }
+//get forecast 7 days
+     func fetchForecastBundle(id: UUID) async throws -> DailyForecastBundle? {
+         let response: PostgrestResponse<[DailyForecastBundle]> = try await client
+             .from("daily_forecast_bundles")
+             .select()
+             .eq("id", value: id.uuidString)
+             .execute()
+
+         return response.value.first
+     }
+
+
 }
+

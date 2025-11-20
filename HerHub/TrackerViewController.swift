@@ -31,6 +31,7 @@ class TrackerViewController: UIViewController {
         styleCard(checkInContainerView)
         styleCard(forecastContainerView)
         styleInsightCard(todayInsightContainerView)   // UPDATED
+        DummyDataSeeder.seedAllDummyData()//remove
     }
     
     // MARK: - Regular White Cards
@@ -129,26 +130,43 @@ extension TrackerViewController {
         Task { await loadCycleData() }
     }
 
-//    private func loadCycleData() async {
-//        do {
-//            let checkIns = try await CycleDataController.shared.getCheckIns()
-//            let predictions = try await CycleDataController.shared.getPredictions()
-//
-//            DispatchQueue.main.async {
-//                if let lastCheckIn = checkIns.last {
-//                    self.updateCheckInUI(lastCheckIn)
-//                }
-//                if let prediction = predictions.last {
-////                    self.updateInsightUI(prediction)
-//                    self.updateForecastUI(prediction.sevenDayForecast)
-//                }
-//            }
-//
-//        } catch {
-//            print("❌ Error loading data:", error.localizedDescription)
-//        }
-//    }
+private func loadCycleData() async {
+    do {
+        // 1️⃣ Get last check-in
+        let checkIns = try await CycleDataController.shared.getCheckIns()
+        if let last = checkIns.last {
+            DispatchQueue.main.async {
+                self.updateCheckInUI(last)
+            }
+        }
 
+        // 2️⃣ Get last prediction
+        let predictions = try await CycleDataController.shared.getPredictions()
+        guard let prediction = predictions.last else { return }
+
+        // 3️⃣ Read forecastID from prediction
+        guard let forecastID = prediction.forecastID else {
+            print("❌ No forecast ID found")
+            return
+        }
+
+        // 4️⃣ Fetch DailyForecastBundle using the ID
+        guard let bundle = try await CycleDataController.shared.getForecastBundle(id: forecastID) else {
+            print("❌ Forecast bundle not found")
+            return
+        }
+
+        let dailyList = bundle.list   // <— [DailyForecast]
+
+        // 5️⃣ Update UI
+        DispatchQueue.main.async {
+            self.updateForecastUI(dailyList)
+        }
+
+    } catch {
+        print("❌ Error loading data:", error.localizedDescription)
+    }
+}
     // MARK: - Update Check-In Section
     private func updateCheckInUI(_ checkIn: CycleCheckIn) {
         moodValueLabel.text = checkIn.symptomsPresent ? "Mixed" : "Good"
@@ -162,13 +180,29 @@ extension TrackerViewController {
         return "\(day)"
     }
 
-//    // MARK: - Update Insight Section
-//    private func updateInsightUI(_ prediction: CyclePrediction) {
-//        insightTitleLabel.text = "Today's Insight"
-//
-//        let today = prediction.sevenDayForecast.first
-//        insightDescriptionLabel.text = today?.weatherDescription ?? "No insight available."
-//    }
+    // MARK: - Update Insight Section
+    private func updateInsightUI(_ prediction: CyclePrediction) {
+        Task {
+            // 1. Make sure we have a valid forecast ID
+            guard let id = prediction.forecastID else {
+                print("❌ No forecastID found in prediction")
+                return
+            }
+
+            // 2. Fetch the forecast bundle from Supabase
+            let bundle = try? await CycleDataController.shared.getForecastBundle(id: id)
+
+            // 3. Extract today's forecast
+            let today = bundle?.list.first
+
+            DispatchQueue.main.async {
+                // Update UI
+//                self.insightTitleLabel.text = "Today's Insight"
+//                self.insightDescriptionLabel.text = today?.weatherDescription ?? "No insight available."
+            }
+        }
+    }
+
 
     // MARK: - Update 7-Day Forecast Section (Using forecastContainerView)
     private func updateForecastUI(_ items: [DailyForecast]) {
@@ -212,7 +246,7 @@ extension TrackerViewController {
             switch forecast.fertility {
             case .low:
                 box.backgroundColor = UIColor(red: 1, green: 0.35, blue: 0.47, alpha: 1) // #FF5A78
-            case .medium:
+            case .med:
                 box.backgroundColor = UIColor(red: 1, green: 0.80, blue: 0.25, alpha: 1) // #FFCC3F
             case .high:
                 box.backgroundColor = UIColor(red: 0.25, green: 0.51, blue: 1, alpha: 1) // #3F82FF
@@ -246,80 +280,109 @@ extension TrackerViewController {
 
         return vStack
     }
-    private func loadCycleData() async {
-
-        // --------------------------------------
-        // ✅ DUMMY DATA FOR INSTANT TESTING
-        // --------------------------------------
-
-        let dummyCheckIn = CycleCheckIn(
-            date: Date(),
-            symptomsPresent: false,
-            currentStress: 3,
-            sleepHours: 7.5,
-            sickOrMeds: false,
-            exerciseChange: .same,
-            periodStartedToday: false
-        )
-
-        let dummyForecast: [DailyForecast] = [
-            DailyForecast(date: Date(),
-                          phase: .follicular,
-                          fertility: .low,
-                          energy: .high,
-                          weatherDescription: "Sunny: strong focus + energy"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 1),
-                          phase: .follicular,
-                          fertility: .medium,
-                          energy: .high,
-                          weatherDescription: "Clear skies: stable mood"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 2),
-                          phase: .ovulation,
-                          fertility: .high,
-                          energy: .high,
-                          weatherDescription: "Peak day: confidence high"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 3),
-                          phase: .luteal,
-                          fertility: .medium,
-                          energy: .medium,
-                          weatherDescription: "Cloudy: slight emotional dip"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 4),
-                          phase: .luteal,
-                          fertility: .low,
-                          energy: .medium,
-                          weatherDescription: "Light rain: take breaks"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 5),
-                          phase: .menstrual,
-                          fertility: .low,
-                          energy: .low,
-                          weatherDescription: "Rainy day: rest recommended"),
-
-            DailyForecast(date: Date().addingTimeInterval(86400 * 6),
-                          phase: .menstrual,
-                          fertility: .low,
-                          energy: .low,
-                          weatherDescription: "Heavy clouds: go easy today")
-        ]
-
-        // --------------------------------------
-        // 🔥 INJECT DUMMY DATA INTO EXISTING UI
-        // --------------------------------------
-        DispatchQueue.main.async {
-            self.updateCheckInUI(dummyCheckIn)
-//            self.updateInsightUI(dummyPrediction)
-            self.updateForecastUI(dummyForecast)
-        }
-
-        // --------------------------------------
-        // ❗ REMOVE BELOW WHEN READY FOR SUPABASE
-        // ❗ Just delete this whole function and restore your old one
-        // --------------------------------------
-    }
+//    private func loadCycleData() async {
+//
+//        // --------------------------------------
+//        // ✅ DUMMY DATA FOR INSTANT TESTING
+//        // --------------------------------------
+//
+//        let dummyCheckIn = CycleCheckIn(
+//            date: Date(),
+//            symptomsPresent: false,
+//            currentStress: 3,
+//            sleepHours: 7.5,
+//            sickOrMeds: false,
+//            exerciseChange: .same,
+//            periodStartedToday: false
+//        )
+//
+//        let dummyForecast: [DailyForecast] = [
+//            DailyForecast(
+//                date: Date(),
+//                phase: .follicular,
+//                fertility: .low,
+//                energy: .high,
+//                weatherDescription: "Sunny: strong focus + energy",
+//                mood: "Energetic",
+//                symptoms: [],
+//                recommendations: ["Go for a walk", "Start a new project"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 1),
+//                phase: .follicular,
+//                fertility: .med,
+//                energy: .high,
+//                weatherDescription: "Clear skies: stable mood",
+//                mood: "Stable",
+//                symptoms: [Symptom(name: "Mild Bloating", intensity: 2)],
+//                recommendations: ["Eat well", "Focus on productivity"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 2),
+//                phase: .ovulation,
+//                fertility: .high,
+//                energy: .high,
+//                weatherDescription: "Peak day: confidence high",
+//                mood: "Confident",
+//                symptoms: [Symptom(name: "Increased Libido", intensity: 8)],
+//                recommendations: ["Schedule social activities", "Do high-energy tasks"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 3),
+//                phase: .luteal,
+//                fertility: .med,
+//                energy: .medium,
+//                weatherDescription: "Cloudy: slight emotional dip",
+//                mood: "Moody",
+//                symptoms: [Symptom(name: "Cramps", intensity: 3)],
+//                recommendations: ["Take rest breaks", "Eat magnesium-rich foods"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 4),
+//                phase: .luteal,
+//                fertility: .low,
+//                energy: .medium,
+//                weatherDescription: "Light rain: take breaks",
+//                mood: "Calm",
+//                symptoms: [Symptom(name: "Headache", intensity: 1)],
+//                recommendations: ["Rest as needed"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 5),
+//                phase: .menstrual,
+//                fertility: .low,
+//                energy: .low,
+//                weatherDescription: "Rainy day: rest recommended",
+//                mood: "Tired",
+//                symptoms: [Symptom(name: "Fatigue", intensity: 5)],
+//                recommendations: ["Use a heating pad", "Avoid intense workouts"]
+//            ),
+//            DailyForecast(
+//                date: Date().addingTimeInterval(86400 * 6),
+//                phase: .menstrual,
+//                fertility: .low,
+//                energy: .low,
+//                weatherDescription: "Heavy clouds: go easy today",
+//                mood: "Low",
+//                symptoms: [Symptom(name: "Back Pain", intensity: 4)],
+//                recommendations: ["Prioritize self-care"]
+//            )
+//        ]
+//
+//        // --------------------------------------
+//        // 🔥 INJECT DUMMY DATA INTO EXISTING UI
+//        // --------------------------------------
+//        DispatchQueue.main.async {
+//            self.updateCheckInUI(dummyCheckIn)
+////            self.updateInsightUI(dummyPrediction)
+//            self.updateForecastUI(dummyForecast)
+//        }
+//
+//        // --------------------------------------
+//        // ❗ REMOVE BELOW WHEN READY FOR SUPABASE
+//        // ❗ Just delete this whole function and restore your old one
+//        // --------------------------------------
+//    }
 }
 extension DailyForecast {
     var phaseDescription: String {

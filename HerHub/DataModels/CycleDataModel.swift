@@ -8,42 +8,57 @@ import Foundation
 
 final class CycleDataController {
     
-    // Singleton pattern for easy use
+    // Singleton
     static let shared = CycleDataController()
     private let manager = CycleDataManager()
     
     private init() {}
     
-    // MARK: - Public APIs
-    
-    // Upload the user's baseline profile
+    // MARK: - Baseline Profile
     func uploadBaselineProfile(_ profile: CycleBaselineProfile) async throws {
         try await manager.saveBaselineProfile(profile)
     }
     
-    // Fetch baseline data (return optional single record)
     func getBaselineProfile() async throws -> CycleBaselineProfile? {
         let profiles = try await manager.fetchBaselineProfile()
         return profiles.first
-    }             
+    }
     
-    // Upload a new cycle check-in
+    // MARK: - Check-Ins
     func uploadCheckIn(_ checkIn: CycleCheckIn) async throws {
         try await manager.saveCheckIn(checkIn)
     }
     
-    // Get all past check-ins
     func getCheckIns() async throws -> [CycleCheckIn] {
         try await manager.fetchCheckIns()
     }
     
-    // Upload a new prediction record
+    // MARK: - Predictions (Weak Dependency)
     func uploadPrediction(_ prediction: CyclePrediction) async throws {
         try await manager.savePrediction(prediction)
     }
     
-    // Fetch recent predictions
     func getPredictions() async throws -> [CyclePrediction] {
         try await manager.fetchPredictions()
+    }
+
+    // MARK: - Forecast Bundles (NEW)
+    func uploadForecastBundle(_ bundle: DailyForecastBundle) async throws {
+        try await manager.saveForecastBundle(bundle)
+    }
+
+    func getForecastBundle(id: UUID) async throws -> DailyForecastBundle? {
+        try await manager.fetchForecastBundle(id: id)
+    }
+    
+    // MARK: - Combined Helper
+    /// Returns the latest prediction + resolved 7-day forecast
+    func getLatestResolvedForecast() async throws -> [DailyForecast] {
+        guard let prediction = try await getPredictions().last,
+              let forecastID = prediction.forecastID else {
+            return []
+        }
+        
+        return try await getForecastBundle(id: forecastID)?.list ?? []
     }
 }
