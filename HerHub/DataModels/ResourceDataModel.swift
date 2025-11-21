@@ -92,6 +92,14 @@ class ResourceManager {
         // Always load fresh sample data for now
         resources = loadSampleResources()
         saveResources()
+//        if let savedData = loadResourcesFromDisk() {
+//              // LOAD DATA FROM DISK
+//              resources = savedData
+//          } else {
+//              // FIRST TIME → LOAD SAMPLE DATA
+//              resources = loadSampleResources()
+//              saveResources()  // save sample data
+//          }
     }
 
     
@@ -124,12 +132,50 @@ class ResourceManager {
 
                 category: .featured,
                 content: """
-                Your menstrual cycle is more than a monthly routine — it’s a rhythm your body follows every single day, quietly influencing your energy, mood, skin, cravings, confidence, and even the way you think. When you understand what’s happening inside your body, you learn to work *with* your cycle instead of struggling against it, and that is one of the most empowering things a girl can do for herself.
-                Your cycle has four phases, and each one has its own personality. During the Menstrual Phase, your hormones drop and your body asks for gentleness. You might feel more emotional or tired, and that’s completely normal. This is the time for warm foods, rest, soft routines, and listening to your body.
-                As you move into the Follicular Phase, your energy naturally rises. Your mind becomes clearer, your creativity flows, and you may feel more motivated to try new things. Many girls describe this phase as feeling like a “fresh start.”
-                Ovulation is your high-vibes moment. You usually feel confident, social, and naturally glowing inside and out. Your communication skills peak, and you may feel more connected to the people around you. It’s a great time for presentations, workouts, and big tasks.
-                The Luteal Phase follows, and this is where your body slows down again. You may notice PMS signs like cravings, mood changes, or bloating — not because something is wrong, but because your body is working hard behind the scenes. Gentle exercise, nutritious snacks, hydration, and self-care can make this phase much easier.
-                When you understand these phases, you no longer feel confused by sudden mood changes or shifts in energy. You begin treating yourself with compassion. You realize your body is not working *against* you — it’s speaking to you. And once you start listening, life becomes calmer, kinder, and so much more aligned with who you are.
+                Your menstrual cycle is not just something that happens once a month — it affects your body every single day. It changes your energy, mood, skin, cravings, confidence, and even the way you think.
+
+                When you understand your cycle, you learn how to work with your body, not against it. And that is one of the most empowering things a girl can do.
+
+                ✨ The Four Phases of Your Cycle
+                1. Menstrual Phase (Period Days)
+
+                This is when your body needs extra care. Your hormones drop, so you may feel tired, emotional, or low-energy.
+
+                Your body is asking for rest — and that’s completely normal.
+                Warm foods, gentle routines, and quiet time help you feel better.
+
+                2. Follicular Phase (Fresh Start Phase)
+
+                After your period, your energy rises again. You may feel creative, motivated, and mentally clear.
+
+                Many girls describe this as a fresh, positive start.
+
+                3. Ovulation Phase (Peak Confidence Phase)
+
+                This is your high-energy and high-confidence time.
+                You may feel more social, active, and glowing.
+
+                It’s a great time for presentations, workouts, social events, or big tasks.
+
+                4. Luteal Phase (Slow Down Phase)
+
+                Your body starts preparing for your next cycle. You might experience PMS — cravings, mood changes, bloating, or irritability.
+
+                This doesn’t mean something is wrong.
+                Your body is working hard behind the scenes.
+
+                Gentle movement, mindful eating, hydration, and self-care can really help.
+
+                🌷 Why Understanding Your Cycle Matters
+
+                When you learn these phases, you stop feeling confused by sudden mood or energy changes.
+
+                You begin treating yourself with kindness and patience.
+
+                And you realize:
+
+                Your body is not working against you — it’s talking to you.
+                When you listen, life feels calmer, easier, and more aligned with who you are.
                 """,
                 author: "🩺 Dr. Meenakshi Gupta",
                 estimatedReadTime: "5 min read",
@@ -141,14 +187,73 @@ class ResourceManager {
                 detailSubtitle: "How movement, breathwork, and mindfulness help you find emotional balance through every phase of your cycle.",
                 category: .health,
                 content: """
- Your mental health is deeply connected to your hormones — far more than most girls are ever taught. Every shift in your cycle influences the way you think, feel, and react. Understanding this connection isn’t just helpful; it’s life-changing.
-During the follicular phase, rising estrogen boosts serotonin and dopamine, the “happy hormones.” This makes you feel motivated, focused, and emotionally lighter. It’s the perfect time to try new habits, start projects, or engage in social activities.
-However, as you enter the luteal phase, your hormone levels change again. Progesterone rises, and for many girls, this can bring irritability, anxiety, or sadness. You might feel more emotional or sensitive during this time — not because you’re weak, but because your body is doing incredibly complex work.
-This is where yoga and mindfulness become powerful tools. Slow breathing techniques help calm your nervous system, easing anxiety and emotional overwhelm. Gentle yoga sequences can reduce PMS symptoms like cramps, bloating, and mood swings. Meditation helps you create space between your emotions and your reactions, allowing you to respond with grace instead of frustration.
-Movement during your cycle doesn’t have to be intense. Sometimes, the kindest thing you can give yourself is a slow stretch, a few minutes of deep breathing, or a quiet walk outside. You’re not supposed to be at 100% energy all month long — no one is.
-When you learn to pair yoga and mindfulness with your natural hormonal rhythm, something magical happens: you feel more in control, more grounded, and more connected to your mind and body. It becomes easier to be patient with yourself, and life starts to feel softer, lighter, and much more manageable.
+                Your mental health and your hormones are deeply connected — much more than most girls ever learn.
+                Every phase of your cycle changes the way you think, feel, react, and handle emotions.
+
+                Understanding this isn’t just helpful —
+                it can completely change the way you care for yourself.
+
+                ✨ Follicular Phase — Your “Feel Good” Phase
+
+                During this phase, estrogen rises and boosts your serotonin and dopamine, also known as the “happy hormones.”
+
+                This means you naturally feel:
+
+                 ✔ Motivated
+                 ✔ Focused
+                 ✔ Emotionally lighter
+                 ✔ Ready to try new things
+
+                 This is the best time to start habits, make plans, begin projects, or socialize.
+
+                 ✨ Luteal Phase — Your Sensitive Phase
+
+                 As you move into the luteal phase, progesterone increases.
+                 For many girls, this brings:
+
+                 • Irritability
+                 • Anxiety
+                 • Emotional sensitivity
+                 • Sadness or moodiness
+
+                 But remember:
+                 You are not weak — your body is doing powerful hormonal work inside you.
+
+                 ✨ Why Yoga & Mindfulness Help
+
+                 This is where yoga and mindfulness become your superpower.
+                 They help your mind and body relax and restore balance.
+
+                 🧘‍♀️ Slow breathing → calms your nervous system
+                 🧘‍♀️ Gentle yoga → reduces cramps, bloating, and mood swings
+                 🧘‍♀️ Meditation → helps you react more peacefully and clearly
+
+                 Mindfulness gives you space to breathe instead of feeling overwhelmed.
+
+                 ✨ Movement Doesn’t Need to Be Hard
+
+                 You don’t need intense workouts every day.
+                 Sometimes the best thing you can do is:
+
+                 • A slow stretch
+                 • Deep breathing
+                 • A gentle walk
+                 • Sitting in calm silence
+
+                 You’re not meant to be at 100% energy all month — and that’s okay.
+
+                 🌷 What Happens When You Move With Your Cycle
+
+                 When you match yoga and mindfulness with your hormonal rhythm, something beautiful happens:
+
+                 You feel more in control.
+                 You feel calmer.
+                 You feel more connected to your body.
+                 Life starts to feel softer and easier.
+
+                 You become more patient, more grounded, and more emotionally balanced — not by forcing yourself, but by understanding yourself.
 """,
-                author: "Dr. Meera Sharma",
+                author: "🩺 Dr. Meera Sharma",
                 estimatedReadTime: "5 min read",
                 imageURL: "yoga_cycle_image"
             ),
@@ -159,19 +264,92 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
 ,
                         category: .lifestyle,
                         content: """
-                        Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
-                        
-                        During your Menstrual Phase, your body loses iron and needs warm, comforting meals. Soups, dals, leafy greens, jaggery, nuts, and warm herbal teas support your body beautifully. These foods rebuild your strength and reduce fatigue.
+                        Food isn’t just fuel —
+                        it’s one of the kindest forms of care you can give your hormones.
 
-                        In the Follicular Phase, fresh and colorful foods help boost your rising energy. Think fruits, smoothies, salads, oats, and yogurt. This phase is all about feeling fresh, light, and renewed.
+                        When you eat according to your menstrual cycle, your:
 
-                        When Ovulation arrives, your body is at its peak. High-fiber foods, lean proteins, and antioxidants help maintain your glow. Berries, eggs, quinoa, and green vegetables help stabilize your blood sugar and keep your energy steady.
+                        ✨ Energy becomes more stable
+                        ✨ Mood feels balanced
+                        ✨ Skin improves
+                        ✨ Cravings reduce
+                        ✨ Period pain becomes easier
 
-                        During the Luteal Phase, cravings hit — and that’s natural. Instead of fighting your cravings, choose foods that nourish your body and emotions. Magnesium-rich foods like dark chocolate, bananas, nuts, and seeds help reduce bloating, cramps, and mood swings. Warm meals, complex carbs, and hydration help you feel calm and grounded.
+                        Your body communicates with you every day — and food is one of the best ways to support it.
 
-                        Eating for your cycle isn’t about dieting — it’s about caring for your body with kindness and awareness. When you give your body what it needs, your moods stabilize, your energy improves, and your relationship with food becomes peaceful and intuitive.
+                        ❤️ Menstrual Phase — Your Comfort Phase
+
+                        During your period, your body loses iron and works hard to restore itself.
+                        This is the time for warm, soft, comforting meals that make you feel held and nourished.
+
+                        The best foods include:
+                        ✔ Warm soups
+                        ✔ Dals and khichdi
+                        ✔ Leafy greens
+                        ✔ Jaggery
+                        ✔ Nuts and seeds
+                        ✔ Herbal teas
+
+                        These foods rebuild your strength and reduce tiredness.
+
+                        🌱 Follicular Phase — Your Fresh Start Phase
+
+                        After your period ends, your energy naturally rises.
+                        Your body loves fresh, colorful, light foods that feel refreshing and clean.
+
+                        Great choices are:
+                        ✔ Fruits
+                        ✔ Smoothies
+                        ✔ Salads
+                        ✔ Oats
+                        ✔ Yogurt
+
+                        This is a phase where you feel renewed — let your food reflect that.
+
+                        ✨ Ovulation — Your Glow Phase
+
+                        During ovulation, your body is at its strongest and most vibrant.
+
+                        To support this peak, focus on:
+                        ✔ High-fiber foods
+                        ✔ Lean proteins
+                        ✔ Antioxidant-rich meals
+
+                        Try things like berries, eggs, quinoa, and lots of green veggies.
+                        These keep your blood sugar steady and help you maintain that natural glow.
+
+                        🍫 Luteal Phase — Your Craving Phase
+
+                        This is the phase before your period, when cravings feel stronger — and that’s completely normal.
+
+                        Instead of fighting your cravings, choose foods that nourish you and comfort you:
+
+                        ✔ Dark chocolate
+                        ✔ Bananas
+                        ✔ Nuts and seeds
+                        ✔ Warm meals
+                        ✔ Complex carbs (oats, sweet potatoes, whole grains)
+
+                        These foods help reduce bloating, cramps, and mood swings.
+
+                        Remember:
+                        Your cravings aren’t “bad.” They’re your body talking to you.
+
+                        🌼 Eating for Your Cycle Is Not a Diet
+
+                        It’s about kindness, awareness, and listening.
+
+                        When you give your body what it genuinely needs:
+
+                        ✨ Your mood becomes stable
+                        ✨ Your energy becomes consistent
+                        ✨ Your relationship with food becomes peaceful
+                        ✨ You feel more connected with your body
+
+                        Cycle syncing is simply:
+                        choosing foods that love you back.
 """,
-                        author: "Dr. Kavya Nair",
+                        author: "🩺 Dr. Kavya Nair",
                         estimatedReadTime: "6 min read",
                         imageURL: "stress_management_image"
                     ),
@@ -181,17 +359,99 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
                 detailSubtitle: "Discover how the food you eat can support your hormones, energy, mood, and overall well-being all month long.",
                 category: .wellness,
                 content: """
-                Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
-                
-                During your Menstrual Phase, your body loses iron and needs warm, comforting meals. Soups, dals, leafy greens, jaggery, nuts, and warm herbal teas support your body beautifully. These foods rebuild your strength and reduce fatigue.
+               Food is not just something you eat —
+               it’s therapy for your hormones, your mood, your skin, and your energy.
 
-                In the Follicular Phase, fresh and colorful foods help boost your rising energy. Think fruits, smoothies, salads, oats, and yogurt. This phase is all about feeling fresh, light, and renewed.
+               When you start eating according to your menstrual cycle, you feel:
 
-                When Ovulation arrives, your body is at its peak. High-fiber foods, lean proteins, and antioxidants help maintain your glow. Berries, eggs, quinoa, and green vegetables help stabilize your blood sugar and keep your energy steady.
+               ✨ More energetic
+               ✨ Less moody
+               ✨ More balanced
+               ✨ Less bloated
+               ✨ More in control of your cravings
 
-                During the Luteal Phase, cravings hit — and that’s natural. Instead of fighting your cravings, choose foods that nourish your body and emotions. Magnesium-rich foods like dark chocolate, bananas, nuts, and seeds help reduce bloating, cramps, and mood swings. Warm meals, complex carbs, and hydration help you feel calm and grounded.
+               Your body has different needs in each phase, and listening to them can change everything.
 
-                Eating for your cycle isn’t about dieting — it’s about caring for your body with kindness and awareness. When you give your body what it needs, your moods stabilize, your energy improves, and your relationship with food becomes peaceful and intuitive.
+               ❤️ Menstrual Phase — Your Comfort Phase
+
+               When you’re on your period, your body loses iron and energy.
+               This is the time to be gentle with yourself.
+
+               Your body loves:
+
+               ✔ Warm soups
+               ✔ Dals and khichdi
+               ✔ Leafy green vegetables
+               ✔ Jaggery
+               ✔ Nuts and seeds
+               ✔ Warm herbal teas
+
+               These foods help reduce fatigue, relax your body, and bring back strength.
+
+               Think: warm, comforting, nourishing.
+
+               🌱 Follicular Phase — Your Fresh Energy Phase
+
+               Right after your period, your energy starts rising again.
+               You feel lighter, refreshed, and more creative.
+
+               Eat foods that feel:
+
+               ✔ Fresh
+               ✔ Colorful
+               ✔ Hydrating
+
+               Like fruits, smoothies, salads, oats, and yogurt.
+
+               This phase is all about feeling fresh, light, and ready to start again.
+
+               ✨ Ovulation — Your Glow Phase
+
+               This is your body at its absolute best —
+               strong, confident, social, and full of natural glow.
+
+               Support this phase with foods that keep your energy steady:
+
+               ✔ High-fiber foods
+               ✔ Lean protein
+               ✔ Antioxidants
+
+               Try foods like berries, eggs, quinoa, paneer, lentils, and lots of green vegetables.
+
+               This is your “shine” phase — let your food help you glow.
+
+               🍫 Luteal Phase — Your Craving Phase
+
+               This is the phase before your period.
+               Your hormones shift, and cravings become stronger — and that is completely normal.
+
+               Instead of fighting cravings, choose comforting + healthy options:
+
+               ✔ Dark chocolate (rich in magnesium)
+               ✔ Bananas
+               ✔ Nuts and seeds
+               ✔ Complex carbs
+               ✔ Warm meals
+               ✔ Hydration
+
+               These help reduce cramps, mood swings, bloating, and irritation.
+
+               Your cravings are not a sign of weakness — they’re your body asking for support.
+
+               🌼 This Isn’t a Diet — It’s Self-Care
+
+               Eating for your cycle is about listening to your body, being kind to yourself, and giving your hormones what they need.
+
+               When you do this:
+
+               ✨ Your mood becomes calm
+               ✨ Your cravings become gentle
+               ✨ Your energy feels stable
+               ✨ Your body feels lighter
+               ✨ Your relationship with food becomes peaceful
+
+               Cycle syncing is simply understanding:
+               “My body changes — and that’s okay. I can support it with love.”
 """,
                 author: "Nutritionist Ananya Rao",
                 estimatedReadTime: "6 min read",
@@ -203,17 +463,99 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
                 detailSubtitle: "Learn how to sync your workouts with your natural hormonal flow to feel stronger, energized, and motivated.",
                 category: .fitness,
                 content:"""
-                Your workout doesn’t have to look the same every day — because your body doesn’t feel the same every day. Once you learn to move in harmony with your hormones, fitness becomes easier, more enjoyable, and far more effective.
-                
-                During the Menstrual Phase, your body needs rest. Light stretching, slow yoga, or gentle walks help release cramps and reduce stress without overwhelming your energy.
+               Your workout doesn’t need to look the same every day —
+               because you don’t feel the same every day.
+               Your hormones shift throughout the month, and they influence your strength, motivation, and energy more than you realize.
 
-                In the Follicular Phase, your energy naturally returns. This is the perfect time for strength training, pilates, cycling, or trying something new. You’ll feel more motivated and physically capable during this phase.
+               Once you learn to move with your cycle instead of against it, fitness becomes:
 
-                When you reach Ovulation, your power peaks. High-intensity workouts like HIIT, running, dancing, or heavy lifting feel natural and exciting. Take advantage of this phase — your body is strong and ready.
+               ✔ Easier
+               ✔ More enjoyable
+               ✔ Less exhausting
+               ✔ Way more effective
 
-                The Luteal Phase is your wind-down time. Opt for moderate workouts like yoga, low-impact cardio, or strength training with lighter intensity. This helps prevent burnout, bloating, and irritation.
+               Let’s break it down beautifully 💛
 
-                When girls sync their workouts with their cycle, they stop feeling guilty for having “low energy days” and start celebrating their natural rhythm. Your body isn't meant to perform at the same level every week — and that’s a beautiful thing.
+               ❤️ Menstrual Phase — Your Rest & Recover Phase
+
+               This is when your body says:
+               “Slow down. I’m healing.”
+
+               During your period, it’s normal to feel low energy.
+               Choose gentle movements like:
+
+               ✔ Light stretching
+               ✔ Slow yoga
+               ✔ A relaxed walk
+               ✔ Deep breathing
+
+               These help ease cramps, relax your mind, and reduce stress — without tiring you out.
+
+               Resting isn’t being lazy — it’s being wise.
+
+               🌱 Follicular Phase — Your “Fresh Start” Phase
+
+               As soon as your period ends, your energy begins to rise again.
+               You feel lighter, focused, and more motivated.
+
+               This is the perfect time for:
+
+               ✔ Strength training
+               ✔ Cycling
+               ✔ Pilates
+               ✔ Trying new workouts
+               ✔ Learning new skills
+
+               Your body feels capable and your brain feels creative.
+
+               This is the phase where confidence naturally grows.
+
+               ✨ Ovulation — Your Power Phase
+
+               This is your strongest, most energetic time of the month.
+               You feel confident, social, and naturally powerful.
+
+               Try workouts that use your physical peak:
+
+               ✔ HIIT
+               ✔ Running
+               ✔ Dance workouts
+               ✔ Heavy lifting
+               ✔ Intense cardio
+
+               Your body handles intensity beautifully during this phase.
+
+               Your power is at its maximum — use it!
+
+               🌙 Luteal Phase — Your Slow-Down Phase
+
+               This is the time before your next period.
+               Your hormones shift, your body warms up internally, and energy drops slowly.
+
+               Great workout choices:
+
+               ✔ Light to moderate strength training
+               ✔ Yoga
+               ✔ Low-impact cardio
+               ✔ Stretching
+               ✔ Long walks
+
+               These help prevent irritation, bloating, and emotional burnout.
+
+               This is your “be kind to yourself” phase.
+
+               🌼 Celebrate Your Natural Rhythm
+
+               When girls sync their workouts with their cycle, something magical happens:
+
+               ✨ No more guilt on low-energy days
+               ✨ No more pushing your body when it’s asking for rest
+               ✨ Better results with less exhaustion
+               ✨ A peaceful relationship with your body
+
+               You finally understand:
+               Your body isn’t inconsistent — it’s beautifully rhythmic.
+               And following that rhythm is one of the healthiest things you can do.
 """,
                 author: "Fitness Coach Priya Singh",
                 estimatedReadTime: "7 min read",
@@ -225,15 +567,83 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
                 detailSubtitle: "Good sleep is more than rest — it’s powerful hormonal therapy for your body and mind.",
                 category: .wellness,
                 content: """
-                Sleep is one of the most powerful ways to support your hormones — yet it’s the one thing most girls overlook. Your cycle affects your sleep patterns, and your sleep affects your cycle in return. When you learn to prioritize rest, your entire body thanks you.
-                
-                Poor sleep can worsen PMS, increase stress, and disrupt appetite signals. On the other hand, deep, restful sleep stabilizes mood, reduces anxiety, balances hunger hormones, and keeps your menstrual cycle regular.
+               Sleep is one of the strongest ways to support your hormones —
+               yet it’s something most girls unknowingly ignore.
+               Your sleep affects your cycle, and your cycle affects your sleep.
+               When you start giving rest the importance it deserves,
+               your entire body begins to feel calmer, lighter, and more balanced.
 
-                During the luteal phase, many girls experience insomnia, irritability, or restless nights due to hormonal shifts. Creating a slow bedtime routine — like switching off screens, drinking warm tea, or journaling — can help calm your mind.
+               😴 How Poor Sleep Affects You
 
-                Good sleep isn’t just about closing your eyes. It’s about giving your body time to heal, reset, and recharge. A well-rested girl is a more confident, focused, and emotionally stable girl. Prioritize your peace, and your body will thank you in ways you can feel every day.
+               When you don’t sleep well, your hormones become stressed. This can lead to:
+
+               More PMS symptoms
+
+               Low mood or irritation
+
+               Increased cravings
+
+               Stress and anxiety
+
+               Irregular cycles
+
+               But when you sleep deeply (even just 7–8 hours):
+
+               ✨ Your mood becomes stable
+               ✨ Anxiety reduces
+               ✨ Hunger hormones stay in control
+               ✨ Your cycle stays more regular
+               ✨ You wake up feeling fresh and confident
+
+               Good sleep is basically free therapy for your hormones.
+
+               🌙 The Luteal Phase — Why Sleep Gets Tricky
+
+               Before your period (during the luteal phase), many girls struggle with:
+
+               • Overthinking at night
+               • Feeling hot or restless
+               • Waking up often
+               • Mood swings
+               • Irritability
+
+               This happens because your hormones are shifting and your body is preparing for menstruation.
+
+               The solution?
+
+               🌸 Create a slow, soft bedtime routine:
+
+               ✔ Switch off screens early
+               ✔ Drink warm herbal tea
+               ✔ Stretch lightly
+               ✔ Journal or write gratitude
+               ✔ Keep your room dim and cool
+
+               Your body responds beautifully to small, soothing habits.
+
+               ☁️ Why Sleep Is Not Just “Closing Your Eyes”
+
+               Sleep is your body’s healing time.
+
+               During deep rest, your body:
+
+               ✔ Repairs your cells
+               ✔ Balances hormones
+               ✔ Reduces inflammation
+               ✔ Calms your nervous system
+               ✔ Resets your mood and energy
+
+               A well-rested girl becomes:
+
+               ✨ More confident
+               ✨ More focused
+               ✨ More emotionally stable
+               ✨ More productive
+               ✨ More connected to herself
+
+               Prioritize your peace — your body will thank you in ways you can feel every day.
 """,
-                author: "HerHub Experts",
+                author: "🩺 Ganesh Mehta",
                 estimatedReadTime: "6 min read",
                 imageURL: "sleep_balance_image"
             ),
@@ -243,15 +653,92 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
                 detailSubtitle: "Gentle lifestyle changes, natural remedies, and supportive habits that make PMS easier to navigate.",
                 category: .lifestyle,
                 content: """
-                PMS doesn’t mean you’re dramatic or overreacting. It means your body is asking for care, softness, and rest. The days before your period can feel heavy — emotionally and physically — but small changes in lifestyle can make a huge difference.
-                
-                Warm water, herbal teas, magnesium-rich foods, gentle movement, and mindful breathing reduce cramps, bloating, and mood swings. Avoiding excessive caffeine and salty snacks helps your body feel lighter and calmer.
+               PMS doesn’t mean you’re dramatic…
+               It doesn’t mean you’re “overreacting”…
+               And it definitely doesn’t mean something is wrong with you.
 
-                Stress is one of the biggest triggers of PMS. Practicing mindfulness, taking small breaks, doing activities you love, and spending time in nature helps your body feel safe and regulated.
+               PMS simply means your body is asking for softness, rest, and care.
+               The days before your period can feel emotionally and physically heavy —
+               and that’s completely normal.
 
-                When you treat your body kindly during PMS, you don’t just reduce discomfort — you strengthen your relationship with yourself. You become more patient, self-aware, and emotionally resilient. PMS doesn’t define you; it teaches you to listen to your body’s needs.
+               💗 Why PMS Happens
+
+               Before your period, your hormones shift.
+               This can affect:
+
+               Mood
+
+               Energy
+
+               Patience
+
+               Skin
+
+               Cravings
+
+               Sleep
+
+               You’re not “moody”; your body is working incredibly hard behind the scenes.
+
+               🌿 Small Lifestyle Changes That Make a Big Difference
+
+               These gentle habits can ease PMS symptoms:
+
+               🍵 Warm drinks & herbal teas
+
+               They relax your belly, calm your mind, and reduce cramps.
+
+               🥜 Magnesium-rich foods
+
+               Dark chocolate, bananas, nuts, and seeds help with bloating and mood swings.
+
+               🧘‍♀️ Gentle movement
+
+               Slow yoga, stretching, or a short walk relaxes your muscles and lowers stress.
+
+               🌬️ Mindful breathing
+
+               Just a few minutes can reduce anxiety and irritability.
+
+               🚫 Avoid too much caffeine & salty snacks
+
+               They can worsen bloating and mood.
+
+               ☀️ Stress Makes PMS Worse
+
+               Stress is one of the biggest triggers of PMS symptoms.
+
+               To help your body feel safe and regulated:
+
+               Take small breaks
+
+               Journal your feelings
+
+               Spend time in nature
+
+               Do activities you love
+
+               Rest when you need to
+
+               A calm mind = calmer PMS.
+
+               🌸 What PMS Really Teaches You
+
+               When you treat your body kindly during PMS:
+
+               ✨ You feel less discomfort
+               ✨ You become more aware of your emotions
+               ✨ You learn patience with yourself
+               ✨ You build emotional strength
+               ✨ You connect more deeply with your mind and body
+
+               PMS doesn’t define you —
+               It teaches you to listen to your body’s needs.
+
+               Whenever you honor your body,
+               your body supports you back. 💗✨
 """,
-                author: "HerHub Experts",
+                author: "🩺 Arpit Singh",
                 estimatedReadTime: "7 min read",
                 imageURL: "pms_management_image"
             ),
@@ -262,15 +749,83 @@ When you learn to pair yoga and mindfulness with your natural hormonal rhythm, s
                 detailSubtitle: "Understand why hormonal acne happens and how to heal your skin with kindness, care, and smart routines.",
                 category: .skincare,
                 content: """
-                Hormonal acne can feel frustrating, especially when it appears at the same time every month. But it’s not a flaw — it’s your body communicating with you. Acne around your chin and jawline often increases during the luteal phase because of rising hormones.
-                
-                Instead of harsh treatments, focus on gentle skincare. Non-comedogenic products, mild cleansers, and consistent routines are far more effective than scrubbing or overwashing. Ingredients like salicylic acid, niacinamide, and tea tree help reduce acne without irritation.
+               Hormonal acne can feel annoying, frustrating, and even unfair —
+               especially when it appears around the same time every month.
+               But here’s something important:
 
-                Your lifestyle also matters. Dehydration, stress, lack of sleep, and sugar spikes can make acne worse. Drinking water, resting well, and eating balanced meals help your skin heal from within.
+               Hormonal acne is not a flaw.
+               It’s your body communicating with you.
 
-                Most importantly, be kind to yourself. Acne is normal, temporary, and treatable. With patience, care, and the right routine, your skin will always find its way back to balance.
+               During the luteal phase (the week before your period), hormones like progesterone rise, and that can cause breakouts — especially around your chin and jawline.
+               It’s your body reacting to changes that are completely normal.
+
+               💧 Gentle Care Works Better Than Harsh Treatments
+
+               Many people think scrubbing harder or using strong products will “fix” acne.
+               But in reality, your skin needs the opposite — calmness and care.
+
+               What actually helps:
+
+               Non-comedogenic (doesn’t clog pores) products
+
+               Mild, gentle cleansers
+
+               A simple, consistent routine
+
+               Ingredients like:
+
+               Salicylic Acid (clears pores)
+
+               Niacinamide (reduces redness + strengthens skin)
+
+               Tea Tree (natural antibacterial)
+
+               These ingredients calm your skin instead of irritating it.
+
+               🧘‍♀️ Your Lifestyle Affects Your Skin Too
+
+               Hormonal acne isn’t just about skincare — it’s also about how your body feels inside.
+               Things that can make acne worse:
+
+               Dehydration
+
+               Stress
+
+               Not sleeping enough
+
+               High sugar foods
+
+               Skipping meals
+
+               Things that help your skin heal from within:
+
+               Drinking enough water
+
+               Sleeping 7–8 hours
+
+               Managing stress gently
+
+               Eating balanced meals
+
+               Giving your skin time to recover
+
+               Your skin reflects your habits — not your beauty.
+
+               💗 Be Kind to Yourself
+
+               Breakouts don’t make you unattractive.
+               They don’t make you “less than.”
+               They don’t define your worth.
+
+               What truly matters is how you treat yourself.
+
+               Acne is temporary.
+               Your confidence is permanent.
+
+               With patience, gentle routines, and the right habits,
+               your skin will return to balance — and so will you. ✨💕
 """,
-                author: "Dr. Aarohi Mehta",
+                author: "🩺 Dr. Aarohi Mehta",
                 estimatedReadTime: "6 min read",
                 imageURL: "hormonal_acne_image"
             )

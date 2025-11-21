@@ -8,8 +8,10 @@
 import UIKit
 
 class LikedResourcesTableViewController: UITableViewController {
+    
     private var likedResources: [Resource] = []
 
+    
     // TEMP user ID (replace later with real logged-in user's ID)
     private let userId = UUID(uuidString: "11111111-1111-1111-1111-111111111111")!
 
@@ -32,19 +34,64 @@ class LikedResourcesTableViewController: UITableViewController {
         return likedResources.count
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LikedResourceCell", for: indexPath)
-        
-        let resource = likedResources[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = resource.title
-        content.secondaryText = resource.description
-        cell.contentConfiguration = content
-        
-        return cell
+
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let resource = likedResources[indexPath.row]
+//
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as? ResourceCell else {
+//            return UITableViewCell()
+//        }
+//
+//        // 🌸 IMAGE
+//        if let imgName = resource.imageURL{
+//            cell.thumbImageView.image = UIImage(named: imgName)
+//        } else {
+//            cell.thumbImageView.image = UIImage(named: "placeholder") // optional
+//        }
+//
+//        // 🌸 TITLE
+//        cell.titleLabel.text = resource.title
+//
+//        // 🌸 DESCRIPTION
+//        cell.descLabel.text = resource.description
+//
+//        // 🌸 CATEGORY (enum → string)
+//           cell.badgeLabel.text = resource.category.rawValue
+//        // 🌸 TIME LABEL
+//        cell.timeLabel.text = resource.estimatedReadTime
+//
+//      
+//        return cell
+//    }
+    override func tableView(_ tableView: UITableView,
+                               cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+           let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCellIdentifier",
+                                                    for: indexPath) as! ResourceCell
+
+           let item = likedResources[indexPath.row]
+           cell.configure(with: item)   // same UI as Resources screen
+           return cell
+       }
+    // MARK: - When user taps a liked card → open detail page
+      override func tableView(_ tableView: UITableView,
+                              didSelectRowAt indexPath: IndexPath) {
+
+          let selected = likedResources[indexPath.row]
+
+          if let detailVC = storyboard?.instantiateViewController(
+              withIdentifier: "ArticleDetailViewController"
+          ) as? ArticleDetailViewController {
+
+              detailVC.resource = selected
+              navigationController?.pushViewController(detailVC, animated: true)
+          }
+      }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 280
     }
-    
+   
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

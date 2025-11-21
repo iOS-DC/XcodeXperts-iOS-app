@@ -90,7 +90,8 @@ class ArticleDetailViewController: UIViewController {
           subtitleLabel.text = resource.detailSubtitle
           authorLabel.text = resource.author
           readTimeLabel.text = resource.estimatedReadTime
-          articleBodyLabel.text = resource.content
+          articleBodyLabel.text = resource.content.cleanedText()
+
 
           if let imageName = resource.imageURL {
               bigImageView.image = UIImage(named: imageName)
@@ -154,9 +155,26 @@ class ArticleDetailViewController: UIViewController {
           exploreButton.setTitleColor(.white, for: .normal)
           exploreButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
       }
+  
+
+
 
       // MARK: - Explore More Button
       @IBAction func exploreMoreTapped(_ sender: UIButton) {
           navigationController?.popViewController(animated: true)
       }
   }
+// MARK: - Clean Text Extension
+extension String {
+    func cleanedText() -> String {
+        return self
+            .replacingOccurrences(of: "\t", with: "")
+            .replacingOccurrences(of: "•", with: "• ")
+            .replacingOccurrences(of: "  ", with: " ")
+            .replacingOccurrences(of: "\n                ", with: "\n")
+            .replacingOccurrences(of: "\n            ", with: "\n")
+            .replacingOccurrences(of: "\n        ", with: "\n")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+}
+
