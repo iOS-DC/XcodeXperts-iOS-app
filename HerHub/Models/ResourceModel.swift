@@ -19,7 +19,7 @@ struct Resource: Codable, Identifiable, Equatable {
     var estimatedReadTime: String
     var imageURL: String?
     var isBookmarked: Bool
-    var isLiked: Bool
+    var isLiked: [UUID]?
     
     init(
         title: String,
@@ -31,7 +31,7 @@ struct Resource: Codable, Identifiable, Equatable {
         estimatedReadTime: String,
         imageURL: String? = nil,
         isBookmarked: Bool = false,
-        isLiked: Bool = false
+        isLiked: [UUID]? = nil
     ) {
         self.id = UUID()
         self.title = title

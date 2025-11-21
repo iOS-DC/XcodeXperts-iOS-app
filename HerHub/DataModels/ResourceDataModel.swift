@@ -52,12 +52,32 @@ class ResourceManager {
         }
     }
     
-    func toggleLike(for id: UUID) {
-        if let index = resources.firstIndex(where: { $0.id == id }) {
-            resources[index].isLiked.toggle()
-            saveResources()
+//    func toggleLike(for id: UUID) {
+//        if let index = resources.firstIndex(where: { $0.id == id }) {
+//            resources[index].isLiked.toggle()
+//            saveResources()
+//        }
+//    }
+    func toggleLike(resourceId: UUID, userId: UUID) {
+        guard let index = resources.firstIndex(where: { $0.id == resourceId }) else { return }
+
+        // Ensure the array exists
+        if resources[index].isLiked == nil {
+            resources[index].isLiked = []
         }
+
+        // Check if user already liked
+        if let position = resources[index].isLiked?.firstIndex(of: userId) {
+            // User already liked → remove like
+            resources[index].isLiked?.remove(at: position)
+        } else {
+            // User is liking for the first time → add userId
+            resources[index].isLiked?.append(userId)
+        }
+
+        saveResources()
     }
+
     
     // MARK: - Persistence
 //    private func loadResources() {
@@ -88,6 +108,10 @@ class ResourceManager {
             try? codedData.write(to: archiveURL, options: .noFileProtection)
         }
     }
+    func getResource(by id: UUID) -> Resource? {
+        return resources.first(where: { $0.id == id })
+    }
+
     
     // MARK: - Sample Data
     // MARK: - Sample Data
@@ -107,7 +131,7 @@ class ResourceManager {
                 The Luteal Phase follows, and this is where your body slows down again. You may notice PMS signs like cravings, mood changes, or bloating — not because something is wrong, but because your body is working hard behind the scenes. Gentle exercise, nutritious snacks, hydration, and self-care can make this phase much easier.
                 When you understand these phases, you no longer feel confused by sudden mood changes or shifts in energy. You begin treating yourself with compassion. You realize your body is not working *against* you — it’s speaking to you. And once you start listening, life becomes calmer, kinder, and so much more aligned with who you are.
                 """,
-                author: "HerHub Experts",
+                author: "🩺 Dr. Meenakshi Gupta",
                 estimatedReadTime: "5 min read",
                 imageURL: "menstrual_cycle_image"
             ),
@@ -118,16 +142,11 @@ class ResourceManager {
                 category: .health,
                 content: """
  Your mental health is deeply connected to your hormones — far more than most girls are ever taught. Every shift in your cycle influences the way you think, feel, and react. Understanding this connection isn’t just helpful; it’s life-changing.
-                
-                During the follicular phase, rising estrogen boosts serotonin and dopamine, the “happy hormones.” This makes you feel motivated, focused, and emotionally lighter. It’s the perfect time to try new habits, start projects, or engage in social activities.
-
-                However, as you enter the luteal phase, your hormone levels change again. Progesterone rises, and for many girls, this can bring irritability, anxiety, or sadness. You might feel more emotional or sensitive during this time — not because you’re weak, but because your body is doing incredibly complex work.
-
-                This is where yoga and mindfulness become powerful tools. Slow breathing techniques help calm your nervous system, easing anxiety and emotional overwhelm. Gentle yoga sequences can reduce PMS symptoms like cramps, bloating, and mood swings. Meditation helps you create space between your emotions and your reactions, allowing you to respond with grace instead of frustration.
-
-                Movement during your cycle doesn’t have to be intense. Sometimes, the kindest thing you can give yourself is a slow stretch, a few minutes of deep breathing, or a quiet walk outside. You’re not supposed to be at 100% energy all month long — no one is.
-
-                When you learn to pair yoga and mindfulness with your natural hormonal rhythm, something magical happens: you feel more in control, more grounded, and more connected to your mind and body. It becomes easier to be patient with yourself, and life starts to feel softer, lighter, and much more manageable.
+During the follicular phase, rising estrogen boosts serotonin and dopamine, the “happy hormones.” This makes you feel motivated, focused, and emotionally lighter. It’s the perfect time to try new habits, start projects, or engage in social activities.
+However, as you enter the luteal phase, your hormone levels change again. Progesterone rises, and for many girls, this can bring irritability, anxiety, or sadness. You might feel more emotional or sensitive during this time — not because you’re weak, but because your body is doing incredibly complex work.
+This is where yoga and mindfulness become powerful tools. Slow breathing techniques help calm your nervous system, easing anxiety and emotional overwhelm. Gentle yoga sequences can reduce PMS symptoms like cramps, bloating, and mood swings. Meditation helps you create space between your emotions and your reactions, allowing you to respond with grace instead of frustration.
+Movement during your cycle doesn’t have to be intense. Sometimes, the kindest thing you can give yourself is a slow stretch, a few minutes of deep breathing, or a quiet walk outside. You’re not supposed to be at 100% energy all month long — no one is.
+When you learn to pair yoga and mindfulness with your natural hormonal rhythm, something magical happens: you feel more in control, more grounded, and more connected to your mind and body. It becomes easier to be patient with yourself, and life starts to feel softer, lighter, and much more manageable.
 """,
                 author: "Dr. Meera Sharma",
                 estimatedReadTime: "5 min read",
@@ -140,7 +159,7 @@ class ResourceManager {
 ,
                         category: .lifestyle,
                         content: """
-Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
+                        Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
                         
                         During your Menstrual Phase, your body loses iron and needs warm, comforting meals. Soups, dals, leafy greens, jaggery, nuts, and warm herbal teas support your body beautifully. These foods rebuild your strength and reduce fatigue.
 
@@ -162,7 +181,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
                 detailSubtitle: "Discover how the food you eat can support your hormones, energy, mood, and overall well-being all month long.",
                 category: .wellness,
                 content: """
-Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
+                Food is not just fuel — it’s therapy for your hormones. Eating in sync with your menstrual cycle can transform your energy levels, mood, skin, cravings, and even period pain. When you understand what your body needs in each phase, you feel stronger, healthier, and more balanced from the inside out.
                 
                 During your Menstrual Phase, your body loses iron and needs warm, comforting meals. Soups, dals, leafy greens, jaggery, nuts, and warm herbal teas support your body beautifully. These foods rebuild your strength and reduce fatigue.
 
@@ -184,7 +203,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
                 detailSubtitle: "Learn how to sync your workouts with your natural hormonal flow to feel stronger, energized, and motivated.",
                 category: .fitness,
                 content:"""
- Your workout doesn’t have to look the same every day — because your body doesn’t feel the same every day. Once you learn to move in harmony with your hormones, fitness becomes easier, more enjoyable, and far more effective.
+                Your workout doesn’t have to look the same every day — because your body doesn’t feel the same every day. Once you learn to move in harmony with your hormones, fitness becomes easier, more enjoyable, and far more effective.
                 
                 During the Menstrual Phase, your body needs rest. Light stretching, slow yoga, or gentle walks help release cramps and reduce stress without overwhelming your energy.
 
@@ -206,7 +225,7 @@ Food is not just fuel — it’s therapy for your hormones. Eating in sync with 
                 detailSubtitle: "Good sleep is more than rest — it’s powerful hormonal therapy for your body and mind.",
                 category: .wellness,
                 content: """
-Sleep is one of the most powerful ways to support your hormones — yet it’s the one thing most girls overlook. Your cycle affects your sleep patterns, and your sleep affects your cycle in return. When you learn to prioritize rest, your entire body thanks you.
+                Sleep is one of the most powerful ways to support your hormones — yet it’s the one thing most girls overlook. Your cycle affects your sleep patterns, and your sleep affects your cycle in return. When you learn to prioritize rest, your entire body thanks you.
                 
                 Poor sleep can worsen PMS, increase stress, and disrupt appetite signals. On the other hand, deep, restful sleep stabilizes mood, reduces anxiety, balances hunger hormones, and keeps your menstrual cycle regular.
 
@@ -224,7 +243,7 @@ Sleep is one of the most powerful ways to support your hormones — yet it’s t
                 detailSubtitle: "Gentle lifestyle changes, natural remedies, and supportive habits that make PMS easier to navigate.",
                 category: .lifestyle,
                 content: """
-PMS doesn’t mean you’re dramatic or overreacting. It means your body is asking for care, softness, and rest. The days before your period can feel heavy — emotionally and physically — but small changes in lifestyle can make a huge difference.
+                PMS doesn’t mean you’re dramatic or overreacting. It means your body is asking for care, softness, and rest. The days before your period can feel heavy — emotionally and physically — but small changes in lifestyle can make a huge difference.
                 
                 Warm water, herbal teas, magnesium-rich foods, gentle movement, and mindful breathing reduce cramps, bloating, and mood swings. Avoiding excessive caffeine and salty snacks helps your body feel lighter and calmer.
 
@@ -243,7 +262,7 @@ PMS doesn’t mean you’re dramatic or overreacting. It means your body is aski
                 detailSubtitle: "Understand why hormonal acne happens and how to heal your skin with kindness, care, and smart routines.",
                 category: .skincare,
                 content: """
-Hormonal acne can feel frustrating, especially when it appears at the same time every month. But it’s not a flaw — it’s your body communicating with you. Acne around your chin and jawline often increases during the luteal phase because of rising hormones.
+                Hormonal acne can feel frustrating, especially when it appears at the same time every month. But it’s not a flaw — it’s your body communicating with you. Acne around your chin and jawline often increases during the luteal phase because of rising hormones.
                 
                 Instead of harsh treatments, focus on gentle skincare. Non-comedogenic products, mild cleansers, and consistent routines are far more effective than scrubbing or overwashing. Ingredients like salicylic acid, niacinamide, and tea tree help reduce acne without irritation.
 

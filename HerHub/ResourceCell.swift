@@ -69,19 +69,18 @@ class ResourceCell: UITableViewCell {
 
         
     }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Add spacing around the cell (this creates gap between cards)
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(
-            top: 12,
-            left: 0,
-            bottom: 12,
-            right: 0
-        ))
-    }
-
-        
+//    override func layoutSubviews() {
+////        super.layoutSubviews()
+////        
+////        // Add spacing around the cell (this creates gap between cards)
+////        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(
+////            top: 12,
+////            left: 0,
+////            bottom: 12,
+////            right: 0
+////        ))
+////    }
+    
         func configure(with resource: Resource) {
             titleLabel.text = resource.title
             descLabel.text = resource.description
