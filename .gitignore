@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Xcode
+# User-specific project settings
+xcuserdata/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.
